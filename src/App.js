@@ -13,7 +13,7 @@ import Products from './pages/Products';
 
 function App() {
   return (
-    <div className="App font-sans min-h-screen bg-gray-50">
+    <div className=" min-h-screen bg-gray-50">
       <Router>
         <Routes>
           
