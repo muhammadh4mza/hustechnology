@@ -2,7 +2,7 @@
 
 ## Structure
 - `backend/` — Node.js (Express) API server
-- `frontend/` — React app (with Tailwind CSS)
+- `hustechnology/` — React app (with Tailwind CSS)
 
 ## Getting Started
 
@@ -13,16 +13,16 @@ npm install
 npm run start
 ```
 
-### Frontend
+### hustechnology
 ```
-cd frontend
+cd hustechnology
 npm install
 npm start
 ```
 
 ## Development
 - The backend runs on port 5000 by default.
-- The frontend runs on port 3000 by default.
+- The hustechnology runs on port 3000 by default.
 
 ---
 
