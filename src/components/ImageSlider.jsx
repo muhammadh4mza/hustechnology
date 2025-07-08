@@ -4,7 +4,7 @@ import slider1 from '../assets/GIDS - Home/landing-slider1.png';
 import slider2 from '../assets/GIDS - Home/landing-slider2.png';
 import slider3 from '../assets/GIDS - Home/landing-slider3.png';
 import slider4 from '../assets/GIDS - Home/landing-slider4.png';
-import slider5 from '../assets/GIDS - Home/anding-slider5.png';
+import slider5 from '../assets/GIDS - Home/landing-slider5.png';
 import slider6 from '../assets/GIDS - Home/landing-slider6.png';
 import slider7 from '../assets/GIDS - Home/taimoorair.png';
 
