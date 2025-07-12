@@ -1,10 +1,11 @@
+import React from 'react';
 import Navbar from '../components/Navbar';
-import Banner from '../components/Banner';
-import AboutUsOne from '../components/AboutUsOne'; 
+import SolutionServiceBanner from '../components/SolutionServiceBanner';
+import SolutionsSection from '../components/SolutionsSection';
+import ProductsSection from '../components/ProductsSection';
 import Footer from '../components/Footer';
-import HuscomContent from '../components/HuscomContent';
-import OurTeam from '../components/OurTeam';
-const AboutUs = () => {
+
+const UAVDroneTechnologySolution = () => {
   return (
     <div className="relative bg-[#F5F5F5] min-h-screen overflow-hidden">
       {/* Background elements with lower z-index */}
@@ -16,14 +17,14 @@ const AboutUs = () => {
       {/* Content with higher z-index */}
       <div className="relative z-10">
         <Navbar />
-        <Banner />
-        <AboutUsOne />
-        <HuscomContent />
-        <OurTeam />
+        <SolutionServiceBanner />
+        <SolutionsSection />
+        <ProductsSection />
+
         <Footer />
       </div>
     </div>
   );
 };
 
-export default AboutUs;
+export default UAVDroneTechnologySolution;

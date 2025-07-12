@@ -50,14 +50,14 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2">
             <div className="flex space-x-1">
               {/* Solutions & Services Dropdown */}
-              <div 
-                className="relative" 
+              <div
+                className="relative"
                 ref={dropdownRef}
                 onMouseEnter={() => setOpenDropdown('Solutions & Services')}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
                 <button
-                  onClick={() => toggleDropdown('Solutions & Services')}
+                  type="button"
                   className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-all flex items-center group focus:outline-none"
                   aria-haspopup="true"
                   aria-expanded={openDropdown === 'Solutions & Services'}
@@ -65,32 +65,30 @@ const Navbar = () => {
                   Solutions & Services
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${openDropdown === 'Solutions & Services' ? 'rotate-180 text-blue-400' : 'text-white/70 group-hover:text-blue-400'}`} />
                 </button>
-                {openDropdown === 'Solutions & Services' && (
-                  <div 
-                    className="absolute left-0 mt-2 w-64 origin-top-left rounded-lg bg-white shadow-xl ring-1 ring-black/5 focus:outline-none z-50 animate-fadeIn"
-                    onMouseEnter={() => setOpenDropdown('Solutions & Services')}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
-                    <div className="py-1">
-                      {[
-                        { href: "#", text: "Managed Security & IT Services" },
-                        { href: "#", text: "HR Outsourcing & Consultancy Services" },
-                        { href: "#", text: "IT & Software Solutions, Products Development" },
-                        { href: "#", text: "Data Centers Infrastructure & Cloud Services" },
-                        { href: "#", text: "Telecom & Communication Hardware" },
-                        { href: "#", text: "UAV / Drone Technology Solutions" }
-                      ].map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.href}
-                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all border-b border-gray-100 last:border-0"
-                        >
-                          {item.text}
-                        </a>
-                      ))}
-                    </div>
+                {/* Dropdown menu */}
+                <div
+                  className={`absolute left-0 mt-2 w-64 origin-top-left rounded-lg bg-white shadow-xl ring-1 ring-black/5 focus:outline-none z-50 animate-fadeIn transition-all duration-200 ${openDropdown === 'Solutions & Services' ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'}`}
+                  style={{ top: '100%' }}
+                >
+                  <div className="py-1">
+                    {[
+                      { href: "#", text: "Managed Security & IT Services" },
+                      { href: "#", text: "HR Outsourcing & Consultancy Services" },
+                      { href: "#", text: "IT & Software Solutions, Products Development" },
+                      { href: "#", text: "Data Centers Infrastructure & Cloud Services" },
+                      { href: "#", text: "Telecom & Communication Hardware" },
+                      { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
+                    ].map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.href}
+                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all border-b border-gray-100 last:border-0"
+                      >
+                        {item.text}
+                      </a>
+                    ))}
                   </div>
-                )}
+                </div>
               </div>
 
               {[
