@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import UAVDroneTechnologySolution from './pages/UAVDroneTechnologySolution';
 import AboutUs from './pages/AboutUs';
 import Products from './pages/Products';
+import IPServices from './pages/IPServices';
 
 
 // // Import Poppins font weights
@@ -22,6 +23,7 @@ function App() {
           <Route path="/uav-drone-technology-solution" element={<UAVDroneTechnologySolution />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/#" element={<Products />} />
+          <Route path="/ip-services" element={<IPServices />} />
 
           {/* Add more routes as needed */}
         </Routes>

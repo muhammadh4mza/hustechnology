@@ -72,10 +72,10 @@ const Navbar = () => {
                 >
                   <div className="py-1">
                     {[
-                      { href: "#", text: "Managed Security & IT Services" },
+                      { href: "/ip-services", text: "IP services" },
                       { href: "#", text: "HR Outsourcing & Consultancy Services" },
                       { href: "#", text: "IT & Software Solutions, Products Development" },
-                      { href: "#", text: "Data Centers Infrastructure & Cloud Services" },
+                      { href: "#", text: "Stormwall Network" },
                       { href: "#", text: "Telecom & Communication Hardware" },
                       { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
                     ].map((item, index) => (
