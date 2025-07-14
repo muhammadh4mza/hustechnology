@@ -1,17 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Twitter, Linkedin, Youtube, Instagram, ChevronDown, Menu, X } from 'lucide-react';
 import logo from '../assets/logo-2.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const dropdownRef = useRef(null);
+  const [dropdownState, setDropdownState] = useState({ parent: null, child: null });
 
   const toggleNavbar = () => setIsOpen(!isOpen);
-  const toggleDropdown = (dropdown) => {
-    setOpenDropdown(openDropdown === dropdown ? null : dropdown);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,15 +17,30 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setOpenDropdown(null);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  // Optional: delay closing to prevent flicker
+  let closeTimeout;
+
+  const handleParentEnter = (name) => {
+    clearTimeout(closeTimeout);
+    setDropdownState({ parent: name, child: null });
+  };
+
+  const handleParentLeave = () => {
+    closeTimeout = setTimeout(() => {
+      setDropdownState({ parent: null, child: null });
+    }, 200);
+  };
+
+  const handleChildEnter = (name) => {
+    clearTimeout(closeTimeout);
+    setDropdownState(prev => ({ ...prev, child: name }));
+  };
+
+  const handleChildLeave = () => {
+    closeTimeout = setTimeout(() => {
+      setDropdownState(prev => ({ ...prev, child: null }));
+    }, 200);
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg py-2' : 'bg-black/90 backdrop-blur-sm py-3'}`}>
@@ -52,45 +63,78 @@ const Navbar = () => {
               {/* Solutions & Services Dropdown */}
               <div
                 className="relative"
-                ref={dropdownRef}
-                onMouseEnter={() => setOpenDropdown('Solutions & Services')}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseEnter={() => handleParentEnter('Solutions')}
+                onMouseLeave={handleParentLeave}
               >
                 <button
-                  type="button"
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-all flex items-center group focus:outline-none"
-                  aria-haspopup="true"
-                  aria-expanded={openDropdown === 'Solutions & Services'}
+                  className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 flex items-center group transition-all"
                 >
                   Solutions & Services
-                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${openDropdown === 'Solutions & Services' ? 'rotate-180 text-blue-400' : 'text-white/70 group-hover:text-blue-400'}`} />
+                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownState.parent === 'Solutions' ? 'rotate-180 text-blue-400' : 'text-white/70 group-hover:text-blue-400'}`} />
                 </button>
-                {/* Dropdown menu */}
-                <div
-                  className={`absolute left-0 mt-2 w-64 origin-top-left rounded-lg bg-white shadow-xl ring-1 ring-black/5 focus:outline-none z-50 animate-fadeIn transition-all duration-200 ${openDropdown === 'Solutions & Services' ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible pointer-events-none'}`}
-                  style={{ top: '100%' }}
-                >
-                  <div className="py-1">
-                    {[
-                      { href: "/ip-services", text: "IP Services" },
-                      { href: "#", text: "HR Outsourcing & Consultancy Services" },
-                      { href: "#", text: "IT & Software Solutions, Products Development" },
-                      { href: "#", text: "Stormwall Network" },
-                      { href: "#", text: "Telecom & Communication Hardware" },
-                      { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
-                    ].map((item, index) => (
-                      <a
-                        key={index}
-                        href={item.href}
-                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all border-b border-gray-100 last:border-0"
+
+                {dropdownState.parent === 'Solutions' && (
+                  <div className="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50 transition-all duration-200">
+                    <div className="py-1">
+                      {/* IP Services Nested Dropdown */}
+                      <div
+                        className="relative"
+                        onMouseEnter={() => handleChildEnter('IP Services')}
+                        onMouseLeave={handleChildLeave}
                       >
-                        {item.text}
-                      </a>
-                    ))}
+                        <a
+                          href="/ip-services"
+                          className="w-full flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b"
+                          style={{ textDecoration: 'none' }}
+                        >
+                          IP Services
+                          <ChevronDown className={`ml-auto h-4 w-4 transition-transform ${dropdownState.child === 'IP Services' ? 'rotate-180 text-blue-400' : 'text-gray-400'}`} />
+                        </a>
+
+                        {dropdownState.child === 'IP Services' && (
+                          <div className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
+                            <div className="py-1">
+                              {[
+                                { href: "/ip-services/lease", text: "IPV4 Leasing" },
+                                { href: "/ip-services/manage", text: "IPV4 Management" },
+                                { href: "/ip-services/buy", text: "Buy IPV4 Addresses" },
+                                { href: "/ip-services/sell", text: "Sell IPV4 Addresses" }
+                              ].map((item, idx) => (
+                                <a
+                                  key={idx}
+                                  href={item.href}
+                                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0"
+                                >
+                                  {item.text}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Other Dropdown Items */}
+                      {[
+                        // { href: "#", text: "HR Outsourcing & Consultancy Services" },
+                        // { href: "#", text: "IT & Software Solutions, Products Development" },
+                        { href: "#", text: "Stormwall Network" },
+                        { href: "#", text: "Telecom & Communication Hardware" },
+                        { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
+                      ].map((item, index) => (
+                        <a
+                          key={index}
+                          href={item.href}
+                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0"
+                        >
+                          {item.text}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
+              {/* Static Links */}
               {[
                 { href: "#", text: "Partnership Program" },
                 { href: "#", text: "Products" },
@@ -131,7 +175,7 @@ const Navbar = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-2 text-white/80 rounded-full hover:text-white ${social.color} transition-all`}
+                  className={`p-2 text-white/80 rounded-full transition-all ${social.color}`}
                 >
                   <social.icon size={18} />
                 </a>
@@ -139,119 +183,15 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Toggle */}
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleNavbar}
               className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-blue-400 hover:bg-white/10 focus:outline-none transition-all"
               aria-expanded={isOpen}
             >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
-      >
-        <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 bg-gradient-to-b from-black to-gray-900/95 backdrop-blur-sm">
-          <img 
-            src="http://huscomintl.com/assets/img/logo-2.png" 
-            className="h-14 mx-auto my-4" 
-            alt="Mobile Logo"
-          />
-
-          {/* Mobile Dropdowns */}
-          <div className="border-t border-white/10 pt-2">
-            <a
-              href="/"
-              className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-all"
-            >
-              Home
-            </a>
-
-            {/* Mobile Solutions Dropdown */}
-            <div>
-              <button
-                onClick={() => toggleDropdown('mobileSolutions')}
-                className="w-full flex justify-between items-center px-4 py-3 rounded-lg text-base font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-all"
-              >
-                Solutions & Services
-                <ChevronDown className={`h-5 w-5 transition-transform ${openDropdown === 'mobileSolutions' ? 'rotate-180 text-blue-400' : 'text-white/70'}`} />
-              </button>
-              {openDropdown === 'mobileSolutions' && (
-                <div className="pl-4 mt-1 space-y-1 animate-fadeIn">
-                  {[
-                    { href: "#", text: "Managed Security & IT Services" },
-                    { href: "#", text: "HR Outsourcing & Consultancy" },
-                    { href: "#", text: "IT & Software Solutions" },
-                    { href: "#", text: "Data Centers & Cloud Services" },
-                    { href: "#", text: "Telecom Hardware" },
-                    { href: "#", text: "Drone Technology Solutions" },
-                  ].map((item, index) => (
-                    <a
-                      key={index}
-                      href={item.href}
-                      className="block px-4 py-2 rounded-lg text-base font-medium text-white/80 hover:text-blue-400 hover:bg-white/5 transition-all"
-                    >
-                      {item.text}
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {[
-              { href: "#", text: "Products" },
-              { href: "/aboutus", text: "About Us" },
-              { href: "#", text: "Contact Us" },
-            ].map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-all"
-              >
-                {item.text}
-              </a>
-            ))}
-
-            <div className="pt-2 border-t border-white/10">
-              <a
-                href="https://huscomintl.com/webmail"
-                className="block px-4 py-3 rounded-lg text-base font-medium text-center text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-md hover:shadow-lg transition-all"
-              >
-                Login
-              </a>
-            </div>
-
-            <div className="flex justify-center space-x-6 pt-4">
-              {[
-                { icon: Twitter, href: "https://twitter.com/", color: "text-blue-400 hover:text-blue-300" },
-                { icon: Linkedin, href: "https://linkedin.com/", color: "text-blue-500 hover:text-blue-400" },
-                { icon: Youtube, href: "https://youtube.com/", color: "text-red-500 hover:text-red-400" },
-                { icon: Instagram, href: "https://instagram.com/", color: "text-pink-500 hover:text-pink-400" },
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${social.color} transition-colors`}
-                >
-                  <social.icon size={22} />
-                </a>
-              ))}
-            </div>
-
-            <p className="text-xs text-white/50 text-center mt-6 pb-2">
-              © {new Date().getFullYear()} Huscom International. All rights reserved.
-            </p>
           </div>
         </div>
       </div>

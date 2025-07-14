@@ -1,15 +1,10 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import IPServicesBanner from '../components/IPServicesBanner';
-// import TradeStats from '../components/TradeStats';
-import IpServicesMeet from '../components/IpServicesMeet';
-import IpServicesSection from '../components/IpServicesSection';
-import IpListServicesSection from '../components/IpListServicesSection';
+import LeasingIPv4Banner from '../components/LeaseIPv4Banner';
+import LeaseProcess from '../components/LeaseProcess';
 
-
-
-const IPServices = () => {
+const LeasingIPv4 = () => {
   return (
     <div className="relative bg-[#F5F5F5] min-h-screen overflow-hidden">
       {/* Background elements with lower z-index */}
@@ -21,16 +16,13 @@ const IPServices = () => {
       {/* Content with higher z-index */}
       <div className="relative z-10">
         <Navbar />
-        <IPServicesBanner />
-        {/* <TradeStats /> */}
-        <IpServicesMeet />
-        <IpServicesSection />
-        <IpListServicesSection />
+        <LeasingIPv4Banner />
+        <LeaseProcess />
 
         <Footer />
       </div>
     </div>
-  );
+  )
 };
 
-export default IPServices;
+export default LeasingIPv4;
