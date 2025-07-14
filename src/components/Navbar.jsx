@@ -72,7 +72,7 @@ const Navbar = () => {
                 >
                   <div className="py-1">
                     {[
-                      { href: "/ip-services", text: "IP services" },
+                      { href: "/ip-services", text: "IP Services" },
                       { href: "#", text: "HR Outsourcing & Consultancy Services" },
                       { href: "#", text: "IT & Software Solutions, Products Development" },
                       { href: "#", text: "Stormwall Network" },
