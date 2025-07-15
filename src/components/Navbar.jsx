@@ -95,10 +95,10 @@ const Navbar = () => {
                           <div className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
                             <div className="py-1">
                               {[
-                                { href: "/ip-services/lease", text: "IPV4 Leasing" },
-                                { href: "/ip-services/manage", text: "IPV4 Management" },
-                                { href: "/ip-services/buy", text: "Buy IPV4 Addresses" },
-                                { href: "/ip-services/sell", text: "Sell IPV4 Addresses" }
+                                { href: "/ip-services/lease", text: "Lease IPV4" },
+                                { href: "/ip-services/manage", text: "Manage IPV4" },
+                                { href: "/ip-services/buy", text: "Buy IPV4" },
+                                { href: "/ip-services/sell", text: "Sell IPV4" }
                               ].map((item, idx) => (
                                 <a
                                   key={idx}
