@@ -59,7 +59,7 @@ const IpServicesSection = () => {
           {services.map((service) => (
             <div 
               key={service.id}
-              className="group bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/10 hover:border-white/20 shadow-lg hover:shadow-xl"
+              className="group bg-white/30 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/10 hover:border-white/20 shadow-lg hover:shadow-xl"
             >
               <div className="flex flex-col items-center text-center h-full">
                 <div className="mb-6 flex items-center justify-center w-20 h-20 rounded-full bg-blue-800/90 group-hover:bg-blue-800/70 transition-all duration-300 shadow-lg">

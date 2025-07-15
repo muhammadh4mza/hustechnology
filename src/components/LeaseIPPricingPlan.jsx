@@ -2,15 +2,15 @@ import React from 'react';
 
 const LeaseIPPricingPlan = () => {
   const pricingPlans = [
-    { cidr: '/24', price: '$97.28' },
-    { cidr: '/23', price: '$194.56' },
-    { cidr: '/22', price: '$378.88' },
-    { cidr: '/21', price: '$716.80' },
-    { cidr: '/20', price: '$1269.76' },
-    { cidr: '/19', price: '$2457.60' },
-    { cidr: '/18', price: '$4915.20' },
-    { cidr: '/17', price: '$9830.40' },
-    { cidr: '/16', price: '$19660.80' },
+    { cidr: '24', price: '$97.28' },
+    { cidr: '23', price: '$194.56' },
+    { cidr: '22', price: '$378.88' },
+    { cidr: '21', price: '$716.80' },
+    { cidr: '20', price: '$1269.76' },
+    { cidr: '19', price: '$2457.60' },
+    { cidr: '18', price: '$4915.20' },
+    { cidr: '17', price: '$9830.40' },
+    { cidr: '16', price: '$19660.80' },
   ];
 
   return (
@@ -52,7 +52,7 @@ const LeaseIPPricingPlan = () => {
                 {plan.price}
               </span>
               <span className="text-white/70 text-sm ml-1">/month</span>
-              <div className="text-xs text-white/50 mt-1">(billed annually)</div>
+              <div className="text-xs text-white/50 mt-1">(If billed annually)</div>
             </div>
 
             {/* Features */}
@@ -66,7 +66,7 @@ const LeaseIPPricingPlan = () => {
             {/* CTA */}
             <div className="mt-6 text-center">
               <a
-                href="https://larus.net/ipv4/new"
+                href="https://huscomint.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-flex items-center justify-center px-6 py-3 font-semibold rounded-xl text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-lg hover:shadow-xl transition-all duration-300 group/button"
