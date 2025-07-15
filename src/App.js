@@ -6,6 +6,7 @@ import AboutUs from './pages/AboutUs';
 import Products from './pages/Products';
 import IPServices from './pages/IPServices';
 import LeasingIPv4 from './pages/LeasingIPv4';
+import ManagingIPv4 from './pages/ManagingIPv4';
 
 
 // // Import Poppins font weights
@@ -26,7 +27,7 @@ function App() {
           <Route path="/#" element={<Products />} />
           <Route path="/ip-services" element={<IPServices />} />
           <Route path="/ip-services/lease" element={<LeasingIPv4 />} />
-          <Route path="/ip-services/manage" element={<IPServices />} />
+          <Route path="/ip-services/manage" element={<ManagingIPv4 />} />
           <Route path="/ip-services/buy" element={<IPServices />} />
           <Route path="/ip-services/sell" element={<IPServices />} />
 
