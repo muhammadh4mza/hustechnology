@@ -3,6 +3,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import LeasingIPv4Banner from '../components/LeaseIPv4Banner';
 import LeaseProcess from '../components/LeaseProcess';
+import LeaseBenefits from '../components/LeaseBenefits';
+import WhyChooseUsLease from '../components/WhyChooseUsLease';
+import LeaseIPPricingPlan from '../components/LeaseIPPricingPlan';
 
 const LeasingIPv4 = () => {
   return (
@@ -18,6 +21,9 @@ const LeasingIPv4 = () => {
         <Navbar />
         <LeasingIPv4Banner />
         <LeaseProcess />
+        <LeaseBenefits />
+        <WhyChooseUsLease />
+        <LeaseIPPricingPlan />
 
         <Footer />
       </div>
