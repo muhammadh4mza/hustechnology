@@ -22,7 +22,7 @@ const SellIPv4Banner = () => {
               Sell IP Addresses
             </h1>
             <p className="text-lg md:text-xl mb-6">
-              Do you want to sell your IP addresses hassle-free? LARUS simplifies the process of selling IP addresses. Our online platform for buying and selling IPs connects sellers with potential buyers, ensuring that all transactions are completed quickly.
+              Do you want to sell your IP addresses hassle-free? Huscomintl simplifies the process of selling IP addresses. Our online platform for buying and selling IPs connects sellers with potential buyers, ensuring that all transactions are completed quickly.
             </p>
             {/* CTA Buttons would go here */}
           </div>

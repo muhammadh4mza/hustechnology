@@ -20,9 +20,10 @@ const SellingIPv4 = () => {
       <div className="relative z-10">
         <Navbar />
         <SellIPv4Banner />
-        <SellProcess />
+        
         <SellBenefits />
         <WhyChooseUsSell />
+        <SellProcess />
         {/* <SellIPPricingPlan /> */}
 
         <Footer />

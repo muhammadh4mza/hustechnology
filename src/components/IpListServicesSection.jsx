@@ -18,7 +18,7 @@ const IpListServicesSection = () => {
       ],
       image: leasingImg,
       cta: "Load Now",
-      link: "https://larus.net/ipv4/new"
+      link: "https://huscomintl.net/ipv4/new"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const IpListServicesSection = () => {
       ],
       image: managementImg,
       cta: "Load Now",
-      link: "https://larus.net/ipv4/new"
+      link: "https://huscomintl.net/ipv4/new"
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const IpListServicesSection = () => {
       ],
       image: buyImg,
       cta: "Load Now",
-      link: "https://larus.net/ipv4/new"
+      link: "https://huscomintl.net/ipv4/new"
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ const IpListServicesSection = () => {
       ],
       image: sellingImg,
       cta: "Load Now",
-      link: "https://larus.net/ipv4/new"
+      link: "https://huscomintl.net/ipv4/new"
     }
   ];
 
