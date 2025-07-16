@@ -9,6 +9,7 @@ import LeasingIPv4 from './pages/LeasingIPv4';
 import ManagingIPv4 from './pages/ManagingIPv4';
 import BuyingIPv4 from './pages/BuyingIPv4';
 import SellingIPv4 from './pages/SellingIPv4';
+import StormwallNetwork from './pages/StormwallNetwork';
 
 
 // // Import Poppins font weights
@@ -32,6 +33,7 @@ function App() {
           <Route path="/ip-services/manage" element={<ManagingIPv4 />} />
           <Route path="/ip-services/buy" element={<BuyingIPv4 />} />
           <Route path="/ip-services/sell" element={<SellingIPv4 />} />
+          <Route path="/stormwallnetwork" element={<StormwallNetwork />} />
 
           {/* Add more routes as needed */}
         </Routes>

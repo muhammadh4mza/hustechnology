@@ -117,7 +117,7 @@ const Navbar = () => {
                       {[
                         // { href: "#", text: "HR Outsourcing & Consultancy Services" },
                         // { href: "#", text: "IT & Software Solutions, Products Development" },
-                        { href: "#", text: "Stormwall Network" },
+                        { href: "/stormwallnetwork", text: "Stormwall Network" },
                         { href: "#", text: "Telecom & Communication Hardware" },
                         { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
                       ].map((item, index) => (
