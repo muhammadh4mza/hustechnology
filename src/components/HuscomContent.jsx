@@ -2,95 +2,117 @@ import React from 'react';
 import { qualityIcon, pioneersIcon, serviceIcon, aiIcon } from '../assets/Services/icons';
 
 const HuscomContent = () => {
+  const features = [
+    {
+      title: "Quality Without Compromise",
+      content:
+        "We uphold international standards by adhering to rigorous quality frameworks. HUSCOM INTERNATIONAL earned CMMI Level 5 certification in 2006 and is SOC 2 Type I & II compliant—ensuring your data is secure and your projects meet the highest quality benchmarks.",
+      icon: qualityIcon,
+    },
+    {
+      title: "Innovation First, Always",
+      content:
+        "We revolutionized the asset finance and leasing sector with the first complete mobile-first digital transformation suite. HUSCOM also introduced the world’s first API-first marketplace for global finance and leasing industries.",
+      icon: pioneersIcon,
+    },
+    {
+      title: "Award-Winning Service",
+      content:
+        "Our dedication has earned us numerous awards for service excellence, setting benchmarks for reliability, scalability, and long-term partnerships.",
+      icon: serviceIcon,
+    },
+    {
+      title: "AI-Led Transformation",
+      content:
+        "Launched in 2019, our AI division has redefined how financial institutions operate—from predictive risk analysis to intelligent customer engagement. Our solutions now serve a wide range of industries beyond finance.",
+      icon: aiIcon,
+    },
+  ];
+
   return (
-    <div className="w-full">
-      {/* Clients Section */}
-      <div className="py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h5 className="text-5xl font-medium text-white">
-              The world's leading brands are powered by HUSCOM INTERNATIONAL
-            </h5>
+    <div className="w-full text-white">
+
+      {/* Expertise Intro */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-gray-950 relative overflow-hidden">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Domain <span className="text-blue-400">Expertise</span>
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300">
+              Since our inception, we’ve been dedicated to delivering modern, mission-critical technology solutions for the financial services industry—particularly the global asset finance and leasing space.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Expertise Section */}
-      <div className="py-16 relative overflow-hidden">
-        <img 
-          src="http://HUSCOMINTERNATIONALtech.com/_nuxt/Main.nxragiK6.svg" 
-          alt="Background" 
-          className="absolute top-0 left-0 w-full h-full object-cover opacity-10"
-        />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-white">
-              Domain <span className="text-blue-600">Expertise</span>
+      {/* Huscom Advantage */}
+      <section className="py-24 bg-gray-800/40 border-t border-gray-700/40">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              The <span className="text-blue-400">HUSCOM</span> Advantage
             </h2>
-            <p className="text-white text-center">
-              The company's core focus since its inception has been the provision of cutting-edge technology solutions for the financial services industry and specifically the global asset finance and leasing sector.
+            <p className="text-lg md:text-xl text-gray-300">
+              Core strengths that define our approach to digital excellence
             </p>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { value: "$500B+", label: "Assets managed globally" },
-              { value: "200+", label: "Customers worldwide" },
-              { value: "25+", label: "Years on NASDAQ: NTWK" },
-              { value: "350+", label: "Successful implementations" }
-            ].map((stat, index) => (
-              <div key={index} className="bg-gradient-to-br from-white/100 to-gray-100/60 rounded-xl p-6 shadow-lg border border-gray-100/60 hover:shadow-xl transition-all  text-center">
-                <h2 className="text-3xl font-bold text-blue-600 mb-2">{stat.value}</h2>
-                <p className="text-gray-600">{stat.label}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="flex flex-col h-full bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-blue-400/40 transition-shadow hover:shadow-lg hover:shadow-blue-400/10 shadow-xl"
+                style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)' }}
+              >
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="w-16 h-16 flex-shrink-0 bg-blue-600/10 rounded-xl flex items-center justify-center">
+                    <img
+                      src={feature.icon}
+                      alt={`${feature.title} icon`}
+                      className="w-9 h-9 object-contain opacity-90"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{feature.content}</p>
+                  </div>
+                </div>
+                <div className="mt-auto text-right">
+                  <button className="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm transition-colors">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Why HUSCOM INTERNATIONAL Edge */}
-      <div className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              { 
-                title: "Committed to quality excellence",
-                content: "To ensure its offerings are compliant to various international quality standards, HUSCOM INTERNATIONAL meticulously adheres to various quality stipulations issued by quality ensuring authorities. HUSCOM INTERNATIONAL received CMMI Level 5 Certification in 2006, the highest internationally recognized quality assurance standard for enhancing and evaluating an organization's software development processes. The company successfully achieved both SOC 2 Type 1 and SOC 2 Type 2 compliance, demonstrating the company's continued dedication to safeguarding the data of its clients and their customers.",
-                icon: qualityIcon
-              },
-              { 
-                title: "Pioneers in the industry",
-                content: "We are proud to be the first to introduce a full suite of mobile-based digital transformation solutions for the global asset finance and leasing industry (formerly NFS Digital). HUSCOM INTERNATIONAL also pioneered the world's first marketplace of API-first products for the global credit, finance, and leasing industry (formerly Appex Now).",
-                icon: pioneersIcon
-              },
-              { 
-                title: "Ensured service levels",
-                content: "We have received various awards and recognition for the quality of our solutions and services over the years.",
-                icon: serviceIcon
-              },
-              { 
-                title: "Harnessing the power of AI",
-                content: "In 2019, HUSCOM INTERNATIONAL embarked on a groundbreaking journey, establishing its AI division with the vision to utilize the power of AI to revolutionize how institutions navigate the complexities of the modern market. Today, we stand proud as leaders in the realm of AI-powered innovation, reshaping the financial services landscape. From risk assessment to customer engagement, our AI solutions empower our partners to stay ahead in an ever-evolving industry. We now cater to a diverse range of other sectors as well.",
-                icon: aiIcon
-              }
-            ].map((item, index) => (
-              <li key={index} className="bg-gradient-to-br from-white/100 to-gray-100/60 rounded-xl p-6 shadow-lg border border-gray-100/60 hover:shadow-xl transition-all glare-hover">
-                <span className="glare" />
-                <div className="flex">
-                  <div className="flex-1">
-                    <h4 className="text-4xl text-blue-600 font-bold mb-4">{item.title}</h4>
-                    <p className="text-gray-600 mb-4">{item.content}</p>
-                  </div>
-                  <div className="ml-4 w-28 h-28 flex-shrink-0 opacity-20">
-                    <img src={item.icon} alt="" className="w-full h-full object-contain" />
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+      {/* CTA */}
+      <section className="py-24 bg-gradient-to-r from-blue-900 via-gray-900 to-gray-950">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-10 md:p-16 flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to <span className="text-blue-400">transform</span> your business?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+              Unlock your potential with cutting-edge solutions from HUSCOM INTERNATIONAL. Let’s move your vision forward.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 w-full">
+              <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors w-full sm:w-auto">
+                Contact Our Experts
+              </button>
+              <button className="px-8 py-4 bg-transparent border-2 border-blue-400 text-blue-400 hover:bg-blue-400/10 font-semibold rounded-lg transition-colors w-full sm:w-auto">
+                View Partnerships Program
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

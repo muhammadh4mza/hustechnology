@@ -2,7 +2,7 @@ import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import AboutUsOne from '../components/AboutUsOne'; 
 import Footer from '../components/Footer';
-// import HuscomContent from '../components/HuscomContent';
+import HuscomContent from '../components/HuscomContent';
 import OurTeam from '../components/OurTeam';
 const AboutUs = () => {
   return (
@@ -18,7 +18,7 @@ const AboutUs = () => {
         <Navbar />
         <Banner />
         <AboutUsOne />
-        {/* <HuscomContent /> */}
+        <HuscomContent />
         <OurTeam />
         <Footer />
       </div>

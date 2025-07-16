@@ -151,20 +151,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Login Button */}
-            <div className="relative group ml-2">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-              <a
-                href="http://huscomintl.com/webmail"
-                className="relative px-4 py-2 rounded-lg text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-md hover:shadow-lg transition-all flex items-center overflow-hidden"
-              >
-                {/* Glare effect */}
-                <span className="absolute left-0 top-0 w-full h-full pointer-events-none">
-                  <span className="block w-1/3 h-full bg-white/40 blur-lg opacity-0 group-hover:opacity-80 group-hover:translate-x-full transition-all duration-700 ease-out rounded-lg" style={{transform: 'skewX(-20deg)'}}></span>
-                </span>
-                <span className="relative z-10">Login</span>
-              </a>
-            </div>
+            
 
             {/* Social Icons */}
             <div className="ml-4 flex space-x-2">
