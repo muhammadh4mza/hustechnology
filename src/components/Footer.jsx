@@ -19,12 +19,10 @@ const Footer = () => {
             </h2>
             <ul className="space-y-2">
               {[
-                { href: "/#", text: "Managed Security & IT Services" },
-                { href: "/#", text: "HR Outsourcing & Consultancy Services" },
-                { href: "/#", text: "IT & Software Solutions, Products Development" },
-                { href: "/#", text: "Data Centers Infrastructure & Cloud Services" },
-                { href: "/#", text: "Telecom & Communication Hardware" },
-                { href: "/#", text: "UAV / Drone Technology Solutions" },
+                { href: "/ip-services", text: "IP Services" },
+                { href: "#", text: "Stormwall Network" },
+                        { href: "#", text: "Telecom & Communication Hardware" },
+                        { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
               ].map((item, index) => (
                 <li key={index}>
                   <a 
