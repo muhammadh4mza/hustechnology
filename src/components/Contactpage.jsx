@@ -124,9 +124,9 @@ const ContactPage = () => {
             </div>
 
             {/* Map Placeholder */}
-            <div className="mt-10 rounded-xl overflow-hidden h-48 bg-gray-700 flex items-center justify-center">
+            {/* <div className="mt-10 rounded-xl overflow-hidden h-48 bg-gray-700 flex items-center justify-center">
               <p className="text-gray-400">Interactive Map Here</p>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Contact Form */}

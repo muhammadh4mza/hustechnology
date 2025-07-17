@@ -77,7 +77,7 @@ const Navbar = () => {
                         className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b"
                         onClick={e => item.subItems && e.preventDefault()}
                         onMouseEnter={() => item.subItems && setSubDropdownOpen(true)}
-                        onMouseLeave={() => item.subItems && setSubDropdownOpen(false)}
+                        onMouseLeave={() => item.subItems && setSubDropdownOpen(true)}
                       >
                         {item.text || item.title}
                         {item.subItems && <ChevronDown className="h-4 w-4 ml-auto text-gray-400 group-hover:text-blue-400" />}
