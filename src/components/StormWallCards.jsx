@@ -3,16 +3,16 @@ import { ArrowRight, Globe, Network, Server } from 'lucide-react';
 
 const HuscomintlServices = [
   {
-    icon: <Globe size={56} className="text-blue-800 bg-white rounded-full p-2" />, // Web
-    title: <>Huscomintl <br /><span className="text-blue-800 font-bold">for Web</span></>,
+    icon: <Globe size={56} className="text-blue-600 bg-white rounded-full p-2" />, // Web
+    title: <>Huscomintl <br /><span className="text-blue-600 font-bold">for Web</span></>,
     description: "Powerful solution to make sure your business-crucial web applications are always accessible during even the most severe DDoS attacks.",
     worksFor: ["Retail", "E-commerce", "Government", "Media", "Banking", "Entertainment, etc"],
     link: "/products/website-ddos-protection",
     linkLabel: "Huscomintl for Web"
   },
   {
-    icon: <Network size={56} className="text-blue-400 bg-white rounded-full p-2" />, // Networks
-    title: <>Huscomintl <br /><span className="text-blue-400 font-bold">for Networks</span></>,
+    icon: <Network size={56} className="text-blue-600 bg-white rounded-full p-2" />, // Networks
+    title: <>Huscomintl <br /><span className="text-blue-600 font-bold">for Networks</span></>,
     description: "Best-in-class network protection to ensure stable operation of your network and secure your business from unforeseen disruptions.",
     worksFor: [
       "ISPs", "Telecom", "Data Centers", "Hosting and Cloud Service Providers", "Large companies with internal networks"
@@ -21,8 +21,8 @@ const HuscomintlServices = [
     linkLabel: "Huscomintl for Networks"
   },
   {
-    icon: <Server size={56} className="text-blue-400 bg-white rounded-full p-2" />, // Servers
-    title: <>Huscomintl <br /><span className="text-blue-400 font-bold">for Servers</span></>,
+    icon: <Server size={56} className="text-blue-600 bg-white rounded-full p-2" />, // Servers
+    title: <>Huscomintl <br /><span className="text-blue-600 font-bold">for Servers</span></>,
     description: "Keep your TCP/UDP services operational and safe from the most modern and complex DDoS attacks.",
     worksFor: ["Gaming", "IP telephony, etc"],
     link: "/products/servers-ddos-protection",

@@ -1,14 +1,14 @@
 import React from 'react';
-import Stormwallnetwork from '../assets/Services/stormwallnetwork/stormwallnetworkbanner.jpg';
+import IpservicesBG from '../assets/Services/stormwallnetwork/stormwallnetworkbanner.jpg';
 
 const StormwallNetworkBanner = () => {
   return (
-    <div className="relative h-96 md:h-[800px] w-full overflow-hidden">
+    <div className="relative h-[650px] sm:h-[650px] md:h-[800px] w-full overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{ 
-          backgroundImage: `url(${Stormwallnetwork})`
+          backgroundImage: `url(${IpservicesBG})`
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>

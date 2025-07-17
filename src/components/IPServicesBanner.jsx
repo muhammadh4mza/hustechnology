@@ -3,7 +3,7 @@ import IpservicesBG from '../assets/Services/IpServices/Ipservicebanner.jpg';
 
 const Banner = () => {
   return (
-    <div className="relative h-96 md:h-[800px] w-full overflow-hidden">
+    <div className="relative h-[650px] sm:h-[650px] md:h-[800px] w-full overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
