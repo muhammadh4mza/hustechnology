@@ -20,7 +20,7 @@ const Navbar = () => {
     { href: '#', text: 'Partnership Program' },
     { href: '#', text: 'Products' },
     { href: '/aboutus', text: 'About Us' },
-    { href: '/contact', text: 'Contact Us' }
+    { href: '/contact-us', text: 'Contact Us' }
   ];
 
   const socialLinks = [
