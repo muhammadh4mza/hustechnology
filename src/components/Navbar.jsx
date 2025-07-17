@@ -17,8 +17,8 @@ const Navbar = () => {
   }, []);
 
   const menuLinks = [
-    { href: '/partnership-program', text: 'Partnership Program' },
-    { href: '/products', text: 'Products' },
+    { href: '#', text: 'Partnership Program' },
+    { href: '#', text: 'Products' },
     { href: '/aboutus', text: 'About Us' },
     { href: '/contact', text: 'Contact Us' }
   ];
