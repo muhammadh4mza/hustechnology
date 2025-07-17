@@ -72,8 +72,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">Email</h4>
-                  <a href="mailto:contact@hustechnology.vercel.app" className="text-gray-300 hover:text-blue-400 transition">
-                    contact@hustechnology.vercel.app
+                  <a href="mailto:contact@gmail.com" className="text-gray-300 hover:text-blue-400 transition">
+                    contact@gmail.com
                   </a>
                 </div>
               </div>
