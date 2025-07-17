@@ -65,7 +65,7 @@ const ServiceCard = ({ category }) => {
         
         {/* Text content */}
         <div className="flex-1 flex flex-col justify-center px-1 sm:px-2">
-          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 transition-transform duration-300 group-hover:-translate-y-1">
+          <h2 className="text-3xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 transition-transform duration-300 group-hover:-translate-y-1">
             {category.name}
           </h2>
           <p className="text-white/80 text-xs sm:text-sm mb-4 sm:mb-6 transition-transform duration-300 group-hover:-translate-y-1">

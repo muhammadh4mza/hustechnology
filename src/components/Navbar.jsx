@@ -7,35 +7,14 @@ import logo from '../assets/logo-2.png';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [dropdownState, setDropdownState] = useState({ parent: null, child: null });
-
-  const toggleNavbar = () => setIsOpen(!isOpen);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [subDropdownOpen, setSubDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  let closeTimeout;
-  const handleParentEnter = (name) => {
-    clearTimeout(closeTimeout);
-    setDropdownState({ parent: name, child: null });
-  };
-  const handleParentLeave = () => {
-    closeTimeout = setTimeout(() => {
-      setDropdownState({ parent: null, child: null });
-    }, 200);
-  };
-  const handleChildEnter = (name) => {
-    clearTimeout(closeTimeout);
-    setDropdownState(prev => ({ ...prev, child: name }));
-  };
-  const handleChildLeave = () => {
-    closeTimeout = setTimeout(() => {
-      setDropdownState(prev => ({ ...prev, child: null }));
-    }, 200);
-  };
 
   const menuLinks = [
     { href: '/partnership-program', text: 'Partnership Program' },
@@ -45,17 +24,32 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: Twitter, href: "https://twitter.com/", label: 'Twitter' },
-    { icon: Linkedin, href: "https://linkedin.com/", label: 'LinkedIn' },
-    { icon: Youtube, href: "https://youtube.com/", label: 'YouTube' },
-    { icon: Instagram, href: "https://instagram.com/", label: 'Instagram' },
+    { icon: Twitter, href: 'https://twitter.com/', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://linkedin.com/', label: 'LinkedIn' },
+    { icon: Youtube, href: 'https://youtube.com/', label: 'YouTube' },
+    { icon: Instagram, href: 'https://instagram.com/', label: 'Instagram' }
+  ];
+
+  const dropdownItems = [
+    {
+      title: 'IP Services',
+      href: '/ip-services',
+      subItems: [
+        { href: '/ip-services/lease', text: 'Lease IPV4' },
+        { href: '/ip-services/manage', text: 'Manage IPV4' },
+        { href: '/ip-services/buy', text: 'Buy IPV4' },
+        { href: '/ip-services/sell', text: 'Sell IPV4' }
+      ]
+    },
+    { href: '/stormwallnetwork', text: 'Stormwall Network' },
+    { href: '/telecom-communication-hardware', text: 'Telecom & Communication Hardware' },
+    { href: '/uav-drone-technology-solution', text: 'UAV / Drone Technology Solutions' }
   ];
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg py-2' : 'bg-black/90 backdrop-blur-sm py-3'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        {/* Logo */}
-        <a href="/" className="flex items-center">
+        <a href="/">
           <img
             src={logo}
             alt="Logo"
@@ -63,98 +57,59 @@ const Navbar = () => {
           />
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-4">
-          {/* Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleParentEnter('Solutions')}
-            onMouseLeave={handleParentLeave}
-          >
+          <div className="relative">
             <button
-              className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 flex items-center group transition-all"
+              className="flex items-center px-4 py-2 text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 rounded-lg"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               Solutions & Services
-              <ChevronDown
-                className={`ml-1 h-4 w-4 transition-transform ${
-                  dropdownState.parent === 'Solutions' ? 'rotate-180 text-blue-400' : 'text-white/70 group-hover:text-blue-400'
-                }`}
-              />
+              <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180 text-blue-400' : 'text-white/70'}`} />
             </button>
-
-            {dropdownState.parent === 'Solutions' && (
+            {dropdownOpen && (
               <div className="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
                 <div className="py-1">
-                  {/* Nested Dropdown */}
-                  <div
-                    className="relative"
-                    onMouseEnter={() => handleChildEnter('IP Services')}
-                    onMouseLeave={handleChildLeave}
-                  >
-                    <a
-                      href="/ip-services"
-                      className="w-full flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b"
-                    >
-                      IP Services
-                      <ChevronDown
-                        className={`ml-auto h-4 w-4 transition-transform ${
-                          dropdownState.child === 'IP Services' ? 'rotate-180 text-blue-400' : 'text-gray-400'
-                        }`}
-                      />
-                    </a>
-
-                    {dropdownState.child === 'IP Services' && (
-                      <div className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
-                        <div className="py-1">
-                          {[
-                            { href: "/ip-services/lease", text: "Lease IPV4" },
-                            { href: "/ip-services/manage", text: "Manage IPV4" },
-                            { href: "/ip-services/buy", text: "Buy IPV4" },
-                            { href: "/ip-services/sell", text: "Sell IPV4" }
-                          ].map((item, idx) => (
-                            <a
-                              key={idx}
-                              href={item.href}
-                              className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0"
-                            >
-                              {item.text}
-                            </a>
-                          ))}
+                  {dropdownItems.map((item, idx) => (
+                    <div key={idx} className="relative group">
+                      <a
+                        href={item.href}
+                        className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b"
+                        onClick={e => item.subItems && e.preventDefault()}
+                        onMouseEnter={() => item.subItems && setSubDropdownOpen(true)}
+                        onMouseLeave={() => item.subItems && setSubDropdownOpen(false)}
+                      >
+                        {item.text || item.title}
+                        {item.subItems && <ChevronDown className="h-4 w-4 ml-auto text-gray-400 group-hover:text-blue-400" />}
+                      </a>
+                      {item.subItems && subDropdownOpen && (
+                        <div className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
+                          <div className="py-1">
+                            {item.subItems.map((sub, sIdx) => (
+                              <a
+                                key={sIdx}
+                                href={sub.href}
+                                className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0"
+                              >
+                                {sub.text}
+                              </a>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {[
-                    { href: "/stormwallnetwork", text: "Stormwall Network" },
-                    { href: "/telecom-communication-hardware", text: "Telecom & Communication Hardware" },
-                    { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" },
-                  ].map((item, idx) => (
-                    <a
-                      key={idx}
-                      href={item.href}
-                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0"
-                    >
-                      {item.text}
-                    </a>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
             )}
           </div>
 
-          {/* Static Links */}
           {menuLinks.map(({ href, text }) => (
-            <a
-              key={href}
-              href={href}
-              className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition"
-            >
+            <a key={href} href={href} className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition">
               {text}
             </a>
           ))}
 
-          {/* Social Icons */}
           <div className="flex space-x-2 ml-2">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
@@ -171,28 +126,56 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Toggle */}
-        <div className="md:hidden flex items-center">
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
           <button
-            onClick={toggleNavbar}
+            onClick={() => setIsOpen(!isOpen)}
             className="p-2 text-white hover:text-blue-400 hover:bg-white/10 rounded-md transition"
-            aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-black px-4 pb-6 pt-2 space-y-2">
-          <a href="/ip-services" className="block text-white py-2">IP Services</a>
-          <a href="/stormwallnetwork" className="block text-white py-2">Stormwall Network</a>
-          <a href="/telecom-communication-hardware" className="block text-white py-2">Telecom Hardware</a>
-          <a href="/uav-drone-technology-solution" className="block text-white py-2">Drone Tech Solutions</a>
+          <div>
+            <button
+              className="w-full flex items-center justify-between py-2 text-white"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              Solutions & Services
+              <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180 text-blue-400' : 'text-white/70'}`} />
+            </button>
+            {dropdownOpen && (
+              <div className="ml-4 mt-2 space-y-2">
+                {dropdownItems.map((item, idx) => (
+                  <div key={idx}>
+                    <a href={item.href} className="block text-white py-1">
+                      {item.text || item.title}
+                    </a>
+                    {item.subItems && (
+                      <div className="ml-4 space-y-1">
+                        {item.subItems.map((sub, sIdx) => (
+                          <a key={sIdx} href={sub.href} className="block text-white/80 text-sm py-1">
+                            {sub.text}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
           {menuLinks.map(({ href, text }) => (
-            <a key={href} href={href} className="block text-white py-2">{text}</a>
+            <a key={href} href={href} className="block text-white py-2">
+              {text}
+            </a>
           ))}
+
           <div className="flex space-x-4 mt-4">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a

@@ -69,7 +69,7 @@ const WhatSetsApart = () => {
             draggable="false"
             style={{ filter: 'drop-shadow(0 2px 8px rgba(59,130,246,0.15))' }}
           />
-          <h2 className="text-4xl md:text-6xl font-extrabold text-blue-700 tracking-tight drop-shadow-sm group-hover:text-blue-600 transition-colors">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-center text-blue-700 tracking-tight drop-shadow-sm group-hover:text-blue-600 transition-colors">
             Huscom International Apart?
           </h2>
         </div>
