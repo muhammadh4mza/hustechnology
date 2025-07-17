@@ -129,20 +129,21 @@ const ProductsSection = () => {
         </div>
 
         {/* Category tabs */}
-        <div className="flex overflow-x-auto pb-2 mb-14 scrollbar-hide">
-          <div className="flex space-x-3 mx-auto">
+        <div className="w-full overflow-x-auto pb-2 mb-10 sm:mb-14 scrollbar-hide">
+          <div className="flex flex-nowrap gap-2 sm:gap-3 md:gap-4 lg:gap-5 mx-auto min-w-max px-1 sm:px-0">
             {categories.map((category, index) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(index)}
-                className={`flex items-center px-6 py-3 rounded-full border-2 transition-all duration-300 whitespace-nowrap font-semibold tracking-wide text-lg shadow-md backdrop-blur-lg ${
+                className={`flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full border-2 transition-all duration-300 whitespace-nowrap font-semibold tracking-wide text-base sm:text-lg shadow-md backdrop-blur-lg ${
                   activeCategory === index
                     ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white border-blue-400 shadow-blue-400/30 scale-105'
                     : 'bg-blue-900/30 text-blue-200 border-blue-700 hover:bg-blue-800/50 hover:text-white'
                 }`}
                 style={{ boxShadow: activeCategory === index ? '0 0 16px 2px #60a5fa55' : undefined }}
+                tabIndex={0}
               >
-                <img src={category.icon} alt="" className="w-6 h-6 mr-3 drop-shadow-blue-400/40" />
+                <img src={category.icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 drop-shadow-blue-400/40" />
                 {category.name}
               </button>
             ))}

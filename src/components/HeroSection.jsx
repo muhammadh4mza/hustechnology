@@ -49,14 +49,20 @@ const HeroSection = () => {
           Your Trusted IT, Telecom, Security and Anti-Drone Products Partner. In today’s fast-paced digital landscape, reliable communication and IT infrastructure are critical to your business's success. At HUSCOM International, we specialize in providing comprehensive IT and telecom services that help businesses stay connected, secure, and ahead of the competition.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-3 bg-[#086ad7] hover:bg-[#065b9a] text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden glare-hover">
+          <a
+            href="#solutions-services"
+            className="px-8 py-3 bg-[#086ad7] hover:bg-[#065b9a] text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden glare-hover text-center"
+          >
             Service We Provide
             <span className="glare" />
-          </button>
-          <button className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden glare-hover">
+          </a>
+          <a
+            href="/aboutus"
+            className="px-8 py-3 bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden glare-hover text-center"
+          >
             Learn More
             <span className="glare" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

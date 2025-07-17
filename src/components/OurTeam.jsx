@@ -76,10 +76,6 @@ const OurTeam = () => {
     },
   ];
 
-  const handleSocialClick = (platform) => {
-    // Implement actual social link handling
-    console.log(`Clicked ${platform}`);
-  };
 
   return (
     <section className="py-16">

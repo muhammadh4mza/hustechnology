@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Autoplay, } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -27,9 +27,8 @@ const ImageSlider = () => {
   return (
     <section id="image-slider" className="relative w-full">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
+        modules={[Autoplay]}
+        // pagination={{ clickable: true }}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop
         slidesPerView={1}

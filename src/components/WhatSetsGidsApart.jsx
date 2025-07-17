@@ -80,12 +80,14 @@ const WhatSetsApart = () => {
             <div className="absolute -inset-4 bg-blue-100 rounded-xl opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500 -z-10" />
             
             <p className="text-gray-700 text-lg leading-relaxed relative z-10">
-              Huscom International is committed to enhancing its presence in local industrial and corporate sectors by offering advanced technological products for niche markets. The company focuses on promoting self-reliance through indigenous technology, leveraging state-of-the-art machinery, equipment, and highly skilled expertise available in its manufacturing units to fulfill the diverse needs of its customers.
-            </p>
+            Huscom International is committed to enhancing its presence in local industrial and corporate sectors by offering advanced technological products for niche markets. The company focuses on promoting self-reliance through indigenous technology, leveraging state-of-the-art machinery, equipment, and highly skilled expertise available in its manufacturing units to fulfill the diverse needs of its customers.
+          </p>
+          <a href="/aboutus">
             <button className="mt-8 px-8 py-2 border-2 border-blue-600 text-blue-700 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 relative overflow-hidden glare-hover">
               <span className="relative z-10">Indigenous Technology</span>
               <span className="glare" />
             </button>
+          </a>
           </div>
         </div>
       </div>

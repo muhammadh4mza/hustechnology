@@ -12,7 +12,7 @@ const categories = [
     name: "IP Services",
     description: "Comprehensive intellectual property protection and management solutions",
     icon: <ShieldCheck className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
-    url: "#",
+    url: "/ip-services",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"
   },
@@ -20,7 +20,7 @@ const categories = [
     name: "Stormwall Network",
     description: "Enterprise-grade network infrastructure and security solutions",
     icon: <Server className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
-    url: "#",
+    url: "/stormwallnetwork",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"
   },
@@ -28,7 +28,7 @@ const categories = [
     name: "Telecom & Communication Hardware",
     description: "Cutting-edge communication devices and infrastructure",
     icon: <Wifi className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
-    url: "#",
+    url: "/telecom-communication-hardware",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"
   },
@@ -36,7 +36,7 @@ const categories = [
     name: "UUAV / Drone Technology",
     description: "Advanced unmanned aerial vehicle solutions",
     icon: <Plane className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
-    url: "#",
+    url: "/uav-drone-technology-solution",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"
   }

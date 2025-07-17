@@ -84,10 +84,13 @@ const WhyChooseUs = () => {
                   "Sed perspiciatis unde omnis iste natus error voluptatem accusantium
                   doloremque laudantium totam rem aperiam eaque quae"
                 </p>
-                <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full font-medium hover:bg-gray-100 transition-colors relative overflow-hidden glare-hover">
+                <a
+                  href="/contact-us"
+                  className="mt-4 inline-block px-6 py-2 bg-white text-blue-600 rounded-full font-medium hover:bg-gray-100 transition-colors relative overflow-hidden glare-hover"
+                >
                   Get Started
                   <span className="glare" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
