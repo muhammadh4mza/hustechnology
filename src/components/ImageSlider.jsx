@@ -27,22 +27,30 @@ const ImageSlider = () => {
   return (
     <section id="image-slider" className="relative w-full">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay, EffectFade]}
+        modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
-        effect="fade"
         loop
-        className="w-full h-96 md:h-[500px] lg:h-[800px]"
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        spaceBetween={24}
+        className="w-full h-72 md:h-96 lg:h-[500px]"
       >
         {sliderImages.map((img, idx) => (
           <SwiperSlide key={idx}>
-            <img
-              src={img}
-              alt={`Slider ${idx + 1}`}
-              className="w-full h-full object-contain object-center select-none bg-black"
-              draggable="false"
-            />
+            <div className="flex items-center justify-center h-full w-full bg-black rounded-xl overflow-hidden">
+              <img
+                src={img}
+                alt={`Slider ${idx + 1}`}
+                className="object-cover h-full w-full select-none"
+                draggable="false"
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
