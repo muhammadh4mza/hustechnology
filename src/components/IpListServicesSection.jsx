@@ -62,7 +62,7 @@ const IPv4OrderPopup = ({ onClose }) => {
             </button>
           </div>
 
-          <div className="flex p-2 items-center text-xs mb-6 bg-gray-700 rounded-lg mx-6">
+          <div className="flex p-2 items-center text-xs mb-6 bg-gray-700 rounded-b-lg mx-6">
             <img src="https://ipv4.larus.net/images/icon_tips.png" alt="icon_tips" className="w-6 h-6 mr-4 ml-3" />
             <span className="text-gray-200">Please fill out the form below and our team will get back to you shortly.</span>
           </div>
