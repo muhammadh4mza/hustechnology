@@ -20,9 +20,9 @@ const Footer = () => {
             <ul className="space-y-2">
               {[
                 { href: "/ip-services", text: "IP Services" },
-                { href: "#", text: "Stormwall Network" },
-                        { href: "#", text: "Telecom & Communication Hardware" },
-                        { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
+                { href: "/stormwallnetwork", text: "Stormwall Network" },
+                { href: "/telecom-communication-hardware", text: "Telecom & Communication Hardware" },
+                { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
               ].map((item, index) => (
                 <li key={index}>
                   <a 
