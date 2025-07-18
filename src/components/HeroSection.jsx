@@ -21,7 +21,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[650px] flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative h-[700px] min-h-[700px] flex items-center justify-center text-center text-white overflow-hidden">
       {/* Video container */}
       <div className="absolute top-0 left-0 w-full h-full">
         <video
