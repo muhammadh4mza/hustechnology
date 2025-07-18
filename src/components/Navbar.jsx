@@ -11,6 +11,7 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeDropdowns, setActiveDropdowns] = useState([]);
   const dropdownRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -59,6 +60,37 @@ const Navbar = () => {
     { href: '/uav-drone-technology-solution', text: 'UAV / Drone Technology Solutions' }
   ];
 
+  const handleMouseEnterDropdown = () => {
+    clearTimeout(dropdownTimeoutRef.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeaveDropdown = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setDropdownOpen(false);
+      setActiveDropdown(null);
+    }, 300);
+  };
+
+  const handleMouseEnterSubmenu = (index) => {
+    clearTimeout(dropdownTimeoutRef.current);
+    setActiveDropdown(index);
+  };
+
+  const handleMouseLeaveSubmenu = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200);
+  };
+
+  const handleMobileDropdownToggle = (index) => {
+    setActiveDropdowns(prev =>
+      prev.includes(index)
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    );
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg py-2' : 'bg-black/90 backdrop-blur-sm py-3'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -72,10 +104,14 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-4">
-          <div className="relative" ref={dropdownRef}>
+          <div 
+            className="relative" 
+            ref={dropdownRef}
+            onMouseEnter={handleMouseEnterDropdown}
+            onMouseLeave={handleMouseLeaveDropdown}
+          >
             <button
               className="flex items-center px-4 py-2 text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 rounded-lg transition-colors"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
             >
               Solutions & Services
               <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180 text-blue-400' : 'text-white/70'}`} />
@@ -85,7 +121,12 @@ const Navbar = () => {
               <div className="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
                 <div className="py-1">
                   {dropdownItems.map((item, idx) => (
-                    <div key={idx} className="relative group">
+                    <div 
+                      key={idx} 
+                      className="relative group"
+                      onMouseEnter={() => handleMouseEnterSubmenu(idx)}
+                      onMouseLeave={handleMouseLeaveSubmenu}
+                    >
                       <a
                         href={item.href}
                         className={`flex items-center justify-between px-4 py-3 text-sm ${
@@ -93,12 +134,6 @@ const Navbar = () => {
                             ? 'text-blue-600 bg-blue-50'
                             : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
                         } border-b transition-colors`}
-                        onClick={(e) => {
-                          if (item.subItems) {
-                            e.preventDefault();
-                            setActiveDropdown(activeDropdown === idx ? null : idx);
-                          }
-                        }}
                       >
                         {item.text || item.title}
                         {item.subItems && (
@@ -106,7 +141,11 @@ const Navbar = () => {
                         )}
                       </a>
                       {item.subItems && activeDropdown === idx && (
-                        <div className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
+                        <div 
+                          className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50"
+                          onMouseEnter={() => handleMouseEnterSubmenu(idx)}
+                          onMouseLeave={handleMouseLeaveSubmenu}
+                        >
                           <div className="py-1">
                             {item.subItems.map((sub, sIdx) => (
                               <a
@@ -171,13 +210,7 @@ const Navbar = () => {
           {/* Solutions & Services - Expandable Section */}
           <div>
             <button
-              onClick={() => {
-                setActiveDropdowns((prev) =>
-                  prev.includes('solutions')
-                    ? prev.filter((item) => item !== 'solutions')
-                    : [...prev, 'solutions']
-                );
-              }}
+              onClick={() => handleMobileDropdownToggle('solutions')}
               className="w-full text-left flex justify-between items-center text-white font-semibold py-2 hover:text-blue-400"
             >
               <span>Solutions & Services</span>
@@ -191,38 +224,48 @@ const Navbar = () => {
             <div className={`${activeDropdowns.includes('solutions') ? 'block' : 'hidden'} pl-2 mt-2 space-y-2`}>
               {dropdownItems.map((item, idx) => {
                 const isActive = activeDropdowns.includes(idx);
+                const hasSubItems = item.subItems && item.subItems.length > 0;
+                
                 return (
-                  <div key={idx}>
-                    <button
-                      onClick={() => {
-                        if (item.subItems) {
-                          setActiveDropdowns(isActive
-                            ? activeDropdowns.filter(i => i !== idx)
-                            : [...activeDropdowns, idx]);
-                        } else {
-                          setIsOpen(false);
-                          window.location.href = item.href;
-                        }
-                      }}
-                      className="w-full text-left flex justify-between items-center text-white py-2 hover:text-blue-400"
-                    >
-                      <span>{item.text || item.title}</span>
-                      {item.subItems && (
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform ${
-                            isActive ? 'rotate-180 text-blue-400' : ''
-                          }`}
-                        />
+                  <div key={idx} className="border-b border-white/10 last:border-0 pb-2 last:pb-0">
+                    <div className="flex items-center justify-between">
+                      <a
+                        href={hasSubItems ? '#' : item.href}
+                        className={`text-white py-2 hover:text-blue-400 ${
+                          hasSubItems ? 'pointer-events-none' : ''
+                        }`}
+                        onClick={(e) => {
+                          if (hasSubItems) {
+                            e.preventDefault();
+                          } else {
+                            setIsOpen(false);
+                          }
+                        }}
+                      >
+                        {item.text || item.title}
+                      </a>
+                      {hasSubItems && (
+                        <button
+                          onClick={() => handleMobileDropdownToggle(idx)}
+                          className="p-2 text-white/70 hover:text-blue-400"
+                          aria-label={`Toggle ${item.title} dropdown`}
+                        >
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform ${
+                              isActive ? 'rotate-180 text-blue-400' : ''
+                            }`}
+                          />
+                        </button>
                       )}
-                    </button>
+                    </div>
 
-                    {item.subItems && (
-                      <div className={`ml-4 space-y-1 ${isActive ? 'block' : 'hidden'}`}>
+                    {hasSubItems && isActive && (
+                      <div className="ml-4 space-y-2 mt-1">
                         {item.subItems.map((sub, sIdx) => (
                           <a
                             key={sIdx}
                             href={sub.href}
-                            className="block text-white/80 text-sm py-1 hover:text-blue-400"
+                            className="block text-white/80 text-sm py-1.5 hover:text-blue-400 pl-2 border-l border-white/10"
                             onClick={() => setIsOpen(false)}
                           >
                             {sub.text}
@@ -251,7 +294,7 @@ const Navbar = () => {
           </div>
 
           {/* Social Icons */}
-          <div className="flex space-x-4 mt-4">
+          <div className="flex space-x-4 mt-4 pt-4 border-t border-white/10">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
