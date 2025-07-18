@@ -108,7 +108,7 @@ const Service = () => {
         </div>
         
         {/* CTA */}
-        <div className="mt-10 sm:mt-14 md:mt-16 text-center">
+        {/* <div className="mt-10 sm:mt-14 md:mt-16 text-center">
           <a 
             href="#contact" 
             className="inline-flex items-center justify-center px-6 sm:px-8 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300"
@@ -116,7 +116,7 @@ const Service = () => {
             Get in touch
             <ArrowRight className="ml-2 w-4 h-4" />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

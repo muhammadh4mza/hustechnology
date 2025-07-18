@@ -61,13 +61,13 @@ const GlobalFilteringNetwork = () => {
       {/* Main Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Side: Map */}
-        <div className="relative overflow-hidden rounded-xl border border-gray-800">
-          <img
-            src="https://content2.stormwall.network/swssn-en/map-en.png"
-            alt="World Map"
-            className="w-full object-cover"
-          />
-        </div>
+        <div className="relative overflow-hidden rounded-xl border border-gray-800 h-full w-full flex items-center justify-center">
+  <img
+    src="https://content2.stormwall.network/swssn-en/map-en.png"
+    alt="World Map"
+    className="object-contain max-h-full max-w-full"
+  />
+</div>
 
         {/* Right Side: Locations */}
         <div className="space-y-6 max-h-[550px] overflow-y-auto pr-2">

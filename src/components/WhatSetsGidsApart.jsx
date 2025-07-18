@@ -57,37 +57,26 @@ const WhatSetsApart = () => {
       </div>
 
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
-        {/* Heading */}
-        <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-2 text-center tracking-tight drop-shadow-sm">
-          What sets
+        {/* Heading - Made responsive with breakpoints */}
+        <h2 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-2 text-center tracking-tight drop-shadow-sm">
+          What sets <span className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-blue-700 tracking-tight drop-shadow-sm group-hover:text-blue-600 transition-colors">Huscom International</span> Apart?
         </h2>
-        <div className="flex items-center justify-center mb-8 group">
-          <img 
-            src={arrowup} 
-            alt="Arrow pointing up" 
-            className="h-10 w-10 md:h-14 md:w-14 mr-3 animate-bounce transition-transform group-hover:scale-110 select-none"
-            draggable="false"
-            style={{ filter: 'drop-shadow(0 2px 8px rgba(59,130,246,0.15))' }}
-          />
-          <h2 className="text-4xl md:text-6xl font-extrabold text-center text-blue-700 tracking-tight drop-shadow-sm group-hover:text-blue-600 transition-colors">
-            Huscom International Apart?
-          </h2>
-        </div>
+        
 
         {/* Tank image and details section */}
         <div className="mt-1 relative flex flex-col items-center">
           <div className="text-center max-w-2xl mx-auto relative">
             <div className="absolute -inset-4 bg-blue-100 rounded-xl opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500 -z-10" />
             
-            <p className="text-gray-700 text-lg leading-relaxed relative z-10">
-            Huscom International is committed to enhancing its presence in local industrial and corporate sectors by offering advanced technological products for niche markets. The company focuses on promoting self-reliance through indigenous technology, leveraging state-of-the-art machinery, equipment, and highly skilled expertise available in its manufacturing units to fulfill the diverse needs of its customers.
-          </p>
-          <a href="/aboutus">
-            <button className="mt-8 px-8 py-2 border-2 border-blue-600 text-blue-700 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 relative overflow-hidden glare-hover">
-              <span className="relative z-10">Indigenous Technology</span>
-              <span className="glare" />
-            </button>
-          </a>
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed relative z-10">
+              Huscom International is committed to enhancing its presence in local industrial and corporate sectors by offering advanced technological products for niche markets. The company focuses on promoting self-reliance through indigenous technology, leveraging state-of-the-art machinery, equipment, and highly skilled expertise available in its manufacturing units to fulfill the diverse needs of its customers.
+            </p>
+            <a href="/aboutus">
+              <button className="mt-8 px-6 sm:px-8 py-2 border-2 border-blue-600 text-blue-700 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 relative overflow-hidden glare-hover">
+                <span className="relative z-10">About Us</span>
+                <span className="glare" />
+              </button>
+            </a>
           </div>
         </div>
       </div>

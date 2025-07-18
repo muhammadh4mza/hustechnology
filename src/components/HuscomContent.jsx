@@ -78,14 +78,14 @@ const HuscomContent = () => {
                     <p className="text-gray-300 leading-relaxed">{feature.content}</p>
                   </div>
                 </div>
-                <div className="mt-auto text-right">
+                {/* <div className="mt-auto text-right">
                   <button className="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm transition-colors">
                     Learn more
                     <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </button>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

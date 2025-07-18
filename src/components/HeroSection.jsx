@@ -50,7 +50,7 @@ const HeroSection = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#solutions-services"
+            href="#services"
             className="px-8 py-3 bg-[#086ad7] hover:bg-[#065b9a] text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden glare-hover text-center"
           >
             Service We Provide

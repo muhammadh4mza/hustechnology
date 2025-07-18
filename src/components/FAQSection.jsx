@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -35,7 +36,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b h-[800px] from-gray-900 to-gray-800 relative overflow-hidden">
       {/* Halogen (glow) effect background */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-blue-500 opacity-30 rounded-full blur-[120px] animate-blob"></div>
@@ -45,7 +46,7 @@ const FAQSection = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section header - updated for dark theme */}
+        {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block px-4 py-1 text-sm font-semibold text-blue-400 bg-blue-900 bg-opacity-50 rounded-full mb-4">
             FAQ
@@ -58,18 +59,17 @@ const FAQSection = () => {
           </p>
         </div>
 
-        {/* FAQ Grid - updated for dark theme */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto min-h-[400px]">
+        {/* FAQ Grid - Fixed accordion */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className={`bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg flex flex-col border border-gray-700 ${
+              className={`bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg border border-gray-700 ${
                 activeIndex === index ? 'ring-2 ring-blue-500' : ''
               }`}
-              style={{ height: '200px' }}
             >
               <button
-                className="w-full p-6 text-left focus:outline-none flex-shrink-0 hover:bg-gray-700 transition-colors"
+                className="w-full p-6 text-left focus:outline-none hover:bg-gray-700 transition-colors"
                 onClick={() => toggleFAQ(index)}
               >
                 <div className="flex items-center justify-between">
@@ -94,43 +94,24 @@ const FAQSection = () => {
                 </div>
               </button>
               
-              <div
-                className={`px-6 pb-6 overflow-y-auto flex-grow transition-all duration-300 ${
-                  activeIndex === index ? 'block' : 'hidden'
-                }`}
-              >
-                <p className="text-gray-300">{faq.answer}</p>
-              </div>
+              <AnimatePresence>
+                {activeIndex === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 pb-6">
+                      <p className="text-gray-300">{faq.answer}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
-
-        {/* CTA - updated for dark theme
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-gray-800 rounded-lg shadow-sm px-8 py-6 border border-gray-700">
-            <p className="text-gray-300 mb-4">
-              Still have questions?
-            </p>
-            <a 
-              href="#contact" 
-              className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Contact Our Team
-              <svg 
-                className="w-4 h-4 ml-2" 
-                fill="currentColor" 
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-              >
-                <path 
-                  fillRule="evenodd" 
-                  d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" 
-                  clipRule="evenodd" 
-                />
-              </svg>
-            </a>
-          </div>
-        </div> */}
       </div>
 
       {/* Animation styles */}

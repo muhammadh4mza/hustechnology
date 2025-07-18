@@ -203,7 +203,7 @@ const IpListServicesSection = () => {
                   onClick={() => setShowPopup(true)}
                   className="relative overflow-hidden inline-flex items-center px-6 py-3 mt-auto text-base font-semibold rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 shadow-lg hover:from-blue-700 hover:to-blue-600"
                 >
-                  <span className="mr-2 z-10">Load More</span>
+                  <span className="mr-2 z-10">Start Now</span>
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
