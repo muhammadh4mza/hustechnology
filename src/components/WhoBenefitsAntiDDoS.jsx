@@ -68,7 +68,7 @@ const WhoBenefitsAntiDDoS = () => {
         {/* CTA */}
         <div className="flex justify-center mt-20">
           <button
-            onClick={() => window.open('https://Huscomintl.network/activate-protection', '_blank')}
+            onClick={() => window.open('/aboutus', '_blank')}
             className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-xl shadow-md transition-transform hover:scale-105"
           >
             Protect Your Business

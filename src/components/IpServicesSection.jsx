@@ -1,8 +1,7 @@
-
-
 import React from 'react';
 import { Briefcase, Link2, Users } from 'lucide-react';
 import bgImg from '../assets/Services/IpServices/ipserviceSection.jpg';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const IpServicesSection = () => {
   const services = [
@@ -46,10 +45,10 @@ const IpServicesSection = () => {
           </h2>
           <p className="text-lg text-blue-100 max-w-3xl mx-auto">
             HUSCOMINTL offers a secure and transparent platform for anyone to{' '}
-            <a href="/buy-ip-addresses" className="text-white hover:text-blue-300 font-medium transition-colors">buy</a>,{' '}
-            <a href="/sell-ip-addresses" className="text-white hover:text-blue-300 font-medium transition-colors">sell</a>{' '}
+            <a href="/ip-services/buy" className="text-white hover:text-blue-300 font-medium transition-colors">buy</a>,{' '}
+            <a href="/ip-services/sell" className="text-white hover:text-blue-300 font-medium transition-colors">sell</a>{' '}
             or{' '}
-            <a href="/ip-leasing" className="text-white hover:text-blue-300 font-medium transition-colors">lease</a>{' '}
+            <a href="/ip-services/lease" className="text-white hover:text-blue-300 font-medium transition-colors">lease</a>{' '}
             IP addresses. With our user-friendly interface and process, you can enjoy a hassle-free experience and choose from various options to meet your business requirements.
           </p>
         </div>
@@ -69,8 +68,8 @@ const IpServicesSection = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
                 <p className="text-blue-100 flex-grow">{service.description}</p>
-                <button
-                  type="button"
+                <Link
+                  to="/contact-us"
                   className="mt-6 inline-flex items-center text-white hover:text-blue-300 font-medium transition-colors focus:outline-none"
                 >
                   Learn more
@@ -83,7 +82,7 @@ const IpServicesSection = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
-                </button>
+                </Link>
               </div>
             </div>
           ))}

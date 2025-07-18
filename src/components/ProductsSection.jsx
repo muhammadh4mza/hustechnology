@@ -130,7 +130,7 @@ const ProductsSection = () => {
 
         {/* Category tabs */}
         <div className="w-full overflow-x-auto pb-2 mb-10 sm:mb-14 scrollbar-hide">
-          <div className="flex flex-nowrap gap-2 sm:gap-3 md:gap-4 lg:gap-5 mx-auto min-w-max px-1 sm:px-0">
+          <div className="flex flex-nowrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mx-auto min-w-max px-1 sm:px-0">
             {categories.map((category, index) => (
               <button
                 key={category.id}

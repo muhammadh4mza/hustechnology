@@ -28,7 +28,7 @@ const IpServicesMeet = () => {
             </div>
             <div className="flex justify-center md:justify-start w-full">
               <a
-                href="/about-us"
+                href="/aboutus"
                 className="glare-hover inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 group relative overflow-hidden"
                 target="_blank"
                 rel="noopener noreferrer"

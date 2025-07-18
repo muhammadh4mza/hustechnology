@@ -127,6 +127,8 @@ const PricingPlansSection = () => {
 
               <div className="mt-auto p-6 bg-gray-50 border-t border-gray-200">
                 <button
+                  onClick={() => window.open('/contact-us', '_blank')}
+                  aria-label={`Get started with ${plan.title}`}
                   className={`w-full py-3 px-6 rounded-md font-semibold transition-colors ${
                     plan.highlight
                       ? 'bg-blue-600 text-white hover:bg-blue-700'

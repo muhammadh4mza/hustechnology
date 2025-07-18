@@ -7,7 +7,7 @@ const HuscomintlServices = [
     title: <>Huscomintl <br /><span className="text-blue-600 font-bold">for Web</span></>,
     description: "Powerful solution to make sure your business-crucial web applications are always accessible during even the most severe DDoS attacks.",
     worksFor: ["Retail", "E-commerce", "Government", "Media", "Banking", "Entertainment, etc"],
-    link: "/products/website-ddos-protection",
+    link: "/contact-us",
     linkLabel: "Huscomintl for Web"
   },
   {
@@ -17,7 +17,7 @@ const HuscomintlServices = [
     worksFor: [
       "ISPs", "Telecom", "Data Centers", "Hosting and Cloud Service Providers", "Large companies with internal networks"
     ],
-    link: "/products/network-ddos-protection",
+    link: "/contact-us",
     linkLabel: "Huscomintl for Networks"
   },
   {
@@ -25,7 +25,7 @@ const HuscomintlServices = [
     title: <>Huscomintl <br /><span className="text-blue-600 font-bold">for Servers</span></>,
     description: "Keep your TCP/UDP services operational and safe from the most modern and complex DDoS attacks.",
     worksFor: ["Gaming", "IP telephony, etc"],
-    link: "/products/servers-ddos-protection",
+    link: "/contact-us",
     linkLabel: "Huscomintl for Servers"
   }
 ];
@@ -69,7 +69,7 @@ const HuscomintlCards = () => (
     </div>
     <button
       className="mt-14 px-8 py-4 bg-blue-800 hover:bg-blue-600 text-white font-bold rounded-lg text-lg shadow-lg transition"
-      onClick={() => window.open('https://Huscomintl.network/activate-protection', '_blank')}
+      onClick={() => window.open('/contact-us', '_blank')}
       style={{ margin: '56px auto 0 auto' }}
     >
       Activate Protection

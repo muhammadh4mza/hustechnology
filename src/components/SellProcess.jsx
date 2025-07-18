@@ -181,7 +181,7 @@ const SellProcess = () => {
           className="text-center mt-16"
         >
           <a
-            href="https://Huscomintl.net/ipv4/new"
+            href="/contact-us"
             className="relative overflow-hidden inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
           >
             {/* Animated background */}
