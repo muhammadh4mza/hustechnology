@@ -46,7 +46,7 @@ const HeroSection = () => {
           WELCOME TO <span className="text-[#086ad7]">HUSCOM</span> INTERNATIONAL
         </h1>
         <p className="text-xl md:text-2xl mb-8 drop-shadow-md">
-          Your Trusted IT, Telecom, Security and Anti-Drone Products Partner. In today’s fast-paced digital landscape, reliable communication and IT infrastructure are critical to your business's success. At HUSCOM International, we specialize in providing comprehensive IT and telecom services that help businesses stay connected, secure, and ahead of the competition.
+          Your Trusted IT, Telecom, Security and Anti-Drone Products Partner. In today’s fast-paced digital landscape, reliable communication and IT infrastructure are critical to your business's success. At HUSCOM International, we specialize in providing comprehensive IT solutions.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
