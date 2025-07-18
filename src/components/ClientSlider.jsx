@@ -24,7 +24,7 @@ const ClientSlider = () => {
   return (
     <div className="py-12 transition-all ">
       <div className="max-w-screen-xl mx-auto px-4">
-        <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-10 lg:mb-12 text-gray-50 uppercase leading-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-10 lg:mb-12 text-gray-50 uppercase leading-tight">
           The world's leading brands are powered by Huscom International Technologies
         </h2>
         </div>
