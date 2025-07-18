@@ -29,6 +29,7 @@ const Banner = () => {
               <button
                 className="glare-hover relative px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg rounded-full shadow-lg transition duration-300 capitalize tracking-wider overflow-hidden"
                 type="button"
+                onClick={() => window.open('/ip-services', '_blank')}
               >
                 <span className="relative z-10">Get IP Addresses Now</span>
                 <span className="glare"></span>
