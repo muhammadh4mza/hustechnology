@@ -94,7 +94,7 @@ const HuscomContent = () => {
 
       {/* CTA */}
       <section className="py-24 bg-gradient-to-r from-blue-900 via-gray-900 to-gray-950">
-        <div className="container mx-auto px-6 lg:px-8 text-center">
+        <div className="container mx-auto px-4 lg:px-8 text-center">
           <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-xl p-10 md:p-16 flex flex-col items-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to <span className="text-blue-400">transform</span> your business?

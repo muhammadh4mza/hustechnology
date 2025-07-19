@@ -5,12 +5,13 @@ import {
 import logo from '../assets/logo-2.png';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeDropdowns, setActiveDropdowns] = useState([]);
+  const [expandedItems, setExpandedItems] = useState([]);
   const dropdownRef = useRef(null);
+  const sidebarRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
 
   useEffect(() => {
@@ -19,7 +20,12 @@ const Navbar = () => {
         setDropdownOpen(false);
         setActiveDropdown(null);
       }
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target) && 
+          !event.target.closest('.mobile-menu-button')) {
+        setSidebarOpen(false);
+      }
     };
+    
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -83,8 +89,12 @@ const Navbar = () => {
     }, 200);
   };
 
-  const handleMobileDropdownToggle = (index) => {
-    setActiveDropdowns(prev =>
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
+  const toggleExpandedItem = (index) => {
+    setExpandedItems(prev =>
       prev.includes(index)
         ? prev.filter(i => i !== index)
         : [...prev, index]
@@ -92,225 +102,250 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg py-2' : 'bg-black/90 backdrop-blur-sm py-3'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <a href="/">
-          <img
-            src={logo}
-            alt="Logo"
-            className={`transition-all duration-300 hover:scale-105 ${scrolled ? 'h-14' : 'h-16'}`}
-          />
-        </a>
+    <>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black shadow-lg py-2' : 'bg-black/90 backdrop-blur-sm py-3'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          <a href="/">
+            <img
+              src={logo}
+              alt="Logo"
+              className={`transition-all duration-300 hover:scale-105 ${scrolled ? 'h-14' : 'h-16'}`}
+            />
+          </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-4">
-          <div 
-            className="relative" 
-            ref={dropdownRef}
-            onMouseEnter={handleMouseEnterDropdown}
-            onMouseLeave={handleMouseLeaveDropdown}
-          >
-            <button
-              className="flex items-center px-4 py-2 text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 rounded-lg transition-colors"
+          {/* Desktop Menu - Original Version */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <div 
+              className="relative" 
+              ref={dropdownRef}
+              onMouseEnter={handleMouseEnterDropdown}
+              onMouseLeave={handleMouseLeaveDropdown}
             >
-              Solutions & Services
-              <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180 text-blue-400' : 'text-white/70'}`} />
-            </button>
-
-            {dropdownOpen && (
-              <div className="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
-                <div className="py-1">
-                  {dropdownItems.map((item, idx) => (
-                    <div 
-                      key={idx} 
-                      className="relative group"
-                      onMouseEnter={() => handleMouseEnterSubmenu(idx)}
-                      onMouseLeave={handleMouseLeaveSubmenu}
-                    >
-                      <a
-                        href={item.href}
-                        className={`flex items-center justify-between px-4 py-3 text-sm ${
-                          activeDropdown === idx
-                            ? 'text-blue-600 bg-blue-50'
-                            : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
-                        } border-b transition-colors`}
-                      >
-                        {item.text || item.title}
-                        {item.subItems && (
-                          <ChevronDown className="h-4 w-4 ml-auto text-gray-400 group-hover:text-blue-400" />
-                        )}
-                      </a>
-                      {item.subItems && activeDropdown === idx && (
-                        <div 
-                          className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50"
-                          onMouseEnter={() => handleMouseEnterSubmenu(idx)}
-                          onMouseLeave={handleMouseLeaveSubmenu}
-                        >
-                          <div className="py-1">
-                            {item.subItems.map((sub, sIdx) => (
-                              <a
-                                key={sIdx}
-                                href={sub.href}
-                                className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0 transition-colors"
-                              >
-                                {sub.text}
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {menuLinks.map(({ href, text }) => (
-            <a
-              key={href}
-              href={href}
-              className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-colors"
-            >
-              {text}
-            </a>
-          ))}
-
-          <div className="flex space-x-2 ml-2">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="p-2 text-white/80 rounded-full transition hover:bg-white/10 hover:text-blue-400"
+              <button
+                className="flex items-center px-4 py-2 text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 rounded-lg transition-colors"
               >
-                <Icon size={18} />
+                Solutions & Services
+                <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${dropdownOpen ? 'rotate-180 text-blue-400' : 'text-white/70'}`} />
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50">
+                  <div className="py-1">
+                    {dropdownItems.map((item, idx) => (
+                      <div 
+                        key={idx} 
+                        className="relative group"
+                        onMouseEnter={() => handleMouseEnterSubmenu(idx)}
+                        onMouseLeave={handleMouseLeaveSubmenu}
+                      >
+                        <a
+                          href={item.href}
+                          className={`flex items-center justify-between px-4 py-3 text-sm ${
+                            activeDropdown === idx
+                              ? 'text-blue-600 bg-blue-50'
+                              : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+                          } border-b transition-colors`}
+                        >
+                          {item.text || item.title}
+                          {item.subItems && (
+                            <ChevronDown className="h-4 w-4 ml-auto text-gray-400 group-hover:text-blue-400" />
+                          )}
+                        </a>
+                        {item.subItems && activeDropdown === idx && (
+                          <div 
+                            className="absolute left-full top-0 ml-1 w-56 rounded-lg bg-white shadow-xl ring-1 ring-black/5 z-50"
+                            onMouseEnter={() => handleMouseEnterSubmenu(idx)}
+                            onMouseLeave={handleMouseLeaveSubmenu}
+                          >
+                            <div className="py-1">
+                              {item.subItems.map((sub, sIdx) => (
+                                <a
+                                  key={sIdx}
+                                  href={sub.href}
+                                  className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 border-b last:border-0 transition-colors"
+                                >
+                                  {sub.text}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {menuLinks.map(({ href, text }) => (
+              <a
+                key={href}
+                href={href}
+                className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-colors"
+              >
+                {text}
               </a>
             ))}
+
+            <div className="flex space-x-2 ml-2">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="p-2 text-white/80 rounded-full transition hover:bg-white/10 hover:text-blue-400"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden">
+            <button
+              onClick={toggleSidebar}
+              className="mobile-menu-button p-2 text-white hover:text-blue-400 hover:bg-white/10 rounded-md transition"
+              aria-label="Toggle menu"
+            >
+              {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu Toggle */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-white hover:text-blue-400 hover:bg-white/10 rounded-md transition"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile & Tablet Dropdown */}
-      {isOpen && (
-        <div className="lg:hidden bg-black px-4 pb-6 pt-2 space-y-2">
-          {/* Solutions & Services - Expandable Section */}
-          <div>
+      {/* Mobile Sidebar - Improved Version */}
+      <div 
+        ref={sidebarRef}
+        className={`fixed inset-y-0 right-0 w-80 bg-black/95 backdrop-blur-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          sidebarOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full p-6 overflow-y-auto">
+          <div className="flex justify-end mb-8">
             <button
-              onClick={() => handleMobileDropdownToggle('solutions')}
-              className="w-full text-left flex justify-between items-center text-white font-semibold py-2 hover:text-blue-400"
+              onClick={toggleSidebar}
+              className="p-2 text-white hover:text-blue-400 rounded-full"
             >
-              <span>Solutions & Services</span>
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${
-                  activeDropdowns.includes('solutions') ? 'rotate-180 text-blue-400' : ''
-                }`}
-              />
+              <X size={24} />
             </button>
+          </div>
 
-            <div className={`${activeDropdowns.includes('solutions') ? 'block' : 'hidden'} pl-2 mt-2 space-y-2`}>
-              {dropdownItems.map((item, idx) => {
-                const isActive = activeDropdowns.includes(idx);
-                const hasSubItems = item.subItems && item.subItems.length > 0;
-                
-                return (
-                  <div key={idx} className="border-b border-white/10 last:border-0 pb-2 last:pb-0">
+          {/* Solutions & Services Section */}
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-4 px-2">
+              <h3 className="text-white text-lg font-semibold">Solutions & Services</h3>
+              <button
+                onClick={() => toggleExpandedItem('solutions')}
+                className="p-2 text-white/70 hover:text-blue-400"
+              >
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${
+                    expandedItems.includes('solutions') ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+            </div>
+            
+            {expandedItems.includes('solutions') && (
+              <ul className="space-y-2">
+                {dropdownItems.map((item, idx) => (
+                  <li key={idx}>
                     <div className="flex items-center justify-between">
                       <a
-                        href={hasSubItems ? '#' : item.href}
-                        className={`text-white py-2 hover:text-blue-400 ${
-                          hasSubItems ? 'pointer-events-none' : ''
-                        }`}
-                        onClick={(e) => {
-                          if (hasSubItems) {
-                            e.preventDefault();
-                          } else {
-                            setIsOpen(false);
-                          }
-                        }}
+                        href={item.href}
+                        className="text-white/90 hover:text-blue-400 py-2 px-2 rounded-lg transition-colors flex-grow"
+                        onClick={() => setSidebarOpen(false)}
                       >
                         {item.text || item.title}
                       </a>
-                      {hasSubItems && (
+                      {item.subItems && (
                         <button
-                          onClick={() => handleMobileDropdownToggle(idx)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toggleExpandedItem(idx);
+                          }}
                           className="p-2 text-white/70 hover:text-blue-400"
-                          aria-label={`Toggle ${item.title} dropdown`}
                         >
                           <ChevronDown
                             className={`h-4 w-4 transition-transform ${
-                              isActive ? 'rotate-180 text-blue-400' : ''
+                              expandedItems.includes(idx) ? 'rotate-180' : ''
                             }`}
                           />
                         </button>
                       )}
                     </div>
-
-                    {hasSubItems && isActive && (
-                      <div className="ml-4 space-y-2 mt-1">
+                    {item.subItems && expandedItems.includes(idx) && (
+                      <ul className="ml-4 mt-1 space-y-1">
                         {item.subItems.map((sub, sIdx) => (
-                          <a
-                            key={sIdx}
-                            href={sub.href}
-                            className="block text-white/80 text-sm py-1.5 hover:text-blue-400 pl-2 border-l border-white/10"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {sub.text}
-                          </a>
+                          <li key={sIdx}>
+                            <a
+                              href={sub.href}
+                              className="block text-white/70 hover:text-blue-400 py-1.5 px-2 rounded-lg transition-colors text-sm"
+                              onClick={() => setSidebarOpen(false)}
+                            >
+                              {sub.text}
+                            </a>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     )}
-                  </div>
-                );
-              })}
-            </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           {/* Main Links */}
-          <div className="pt-4 space-y-2 border-t border-white/10 mt-4">
-            {menuLinks.map(({ href, text }) => (
-              <a
-                key={href}
-                href={href}
-                className="block text-white py-2 hover:text-blue-400 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {text}
-              </a>
-            ))}
+          <div className="mb-6">
+            
+            <ul className="space-y-2">
+              {menuLinks.map(({ href, text }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    className="block text-white/90 hover:text-blue-400 py-2 px-2 rounded-lg transition-colors"
+                    onClick={() => setSidebarOpen(false)}
+                  >
+                    {text}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Social Icons */}
-          <div className="flex space-x-4 mt-4 pt-4 border-t border-white/10">
-            {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="text-white/80 hover:text-blue-400 transition-colors"
-              >
-                <Icon size={18} />
-              </a>
-            ))}
+          <div className="mt-auto pt-6 border-t border-white/10">
+            <h3 className="text-white text-lg font-semibold mb-4 px-2">Connect With Us</h3>
+            <div className="flex space-x-4 px-2">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-white/80 hover:text-blue-400 transition-colors p-2"
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={toggleSidebar}
+        />
       )}
-    </nav>
+    </>
   );
 };
 
