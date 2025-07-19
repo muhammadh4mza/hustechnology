@@ -325,7 +325,7 @@ const Navbar = () => {
                 <li key={href}>
                   <a
                     href={href}
-                    className="block text-white/90 hover:text-blue-400 py-2 px-2 rounded-lg transition-colors"
+                    className="block text-white hover:text-blue-400 font-semibold py-2 px-2 rounded-lg transition-colors text-lg"
                     onClick={() => setSidebarOpen(false)}
                   >
                     {text}
