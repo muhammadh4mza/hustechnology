@@ -37,6 +37,7 @@ const Navbar = () => {
   }, []);
 
   const menuLinks = [
+    { href: '/', text: 'Home' }, // Home is now first
     { href: '#', text: 'Partnership Program' },
     { href: '#', text: 'Products' },
     { href: '/aboutus', text: 'About Us' },
@@ -113,8 +114,17 @@ const Navbar = () => {
             />
           </a>
 
-          {/* Desktop Menu - Original Version */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-4">
+            {/* Home Link - Separate from other menu links */}
+            <a
+              href="/"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-400 hover:bg-white/10 transition-colors"
+            >
+              Home
+            </a>
+
+            {/* Solutions Dropdown */}
             <div 
               className="relative" 
               ref={dropdownRef}
@@ -177,7 +187,8 @@ const Navbar = () => {
               )}
             </div>
 
-            {menuLinks.map(({ href, text }) => (
+            {/* Other Menu Links (excluding Home) */}
+            {menuLinks.slice(1).map(({ href, text }) => (
               <a
                 key={href}
                 href={href}
@@ -216,7 +227,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Sidebar - Improved Version */}
+      {/* Mobile Sidebar */}
       <div 
         ref={sidebarRef}
         className={`fixed inset-y-0 right-0 w-80 bg-black/95 backdrop-blur-lg z-50 transform transition-transform duration-300 ease-in-out ${
@@ -233,8 +244,17 @@ const Navbar = () => {
             </button>
           </div>
 
+          {/* Home Link - At the top of mobile menu */}
+          <a
+            href="/"
+            className="text-white/90 hover:text-blue-400 py-3 px-2 rounded-lg transition-colors text-lg font-medium mb-4"
+            onClick={() => setSidebarOpen(false)}
+          >
+            Home
+          </a>
+
           {/* Solutions & Services Section */}
-          <div className="mb-6">
+          <div className="mb-0">
             <div className="flex items-center justify-between mb-4 px-2">
               <h3 className="text-white text-lg font-semibold">Solutions & Services</h3>
               <button
@@ -298,11 +318,10 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Main Links */}
+          {/* Other Main Links (excluding Home) */}
           <div className="mb-6">
-            
             <ul className="space-y-2">
-              {menuLinks.map(({ href, text }) => (
+              {menuLinks.slice(1).map(({ href, text }) => (
                 <li key={href}>
                   <a
                     href={href}
