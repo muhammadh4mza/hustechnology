@@ -16,21 +16,21 @@ const HuscomintlCards = () => {
   const HuscomintlServices = [
     {
       icon: <Globe size={56} className="text-blue-600 bg-white rounded-full p-2" />,
-      title: <>Huscom <br /><span className="text-blue-600 font-bold">for Web</span></>,
+      title: <>Stormwall <br /><span className="text-blue-600 font-bold">for Web</span></>,
       description: "Powerful solution to make sure your business-crucial web applications are always accessible during even the most severe DDoS attacks.",
       worksFor: ["Retail", "E-commerce", "Government", "Media", "Banking", "Entertainment, etc"],
       serviceType: "Web Protection"
     },
     {
       icon: <Network size={56} className="text-blue-600 bg-white rounded-full p-2" />,
-      title: <>Huscom <br /><span className="text-blue-600 font-bold">for Networks</span></>,
+      title: <>Stormwall <br /><span className="text-blue-600 font-bold">for Networks</span></>,
       description: "Best-in-class network protection to ensure stable operation of your network and secure your business from unforeseen disruptions.",
       worksFor: ["ISPs", "Telecom", "Data Centers", "Hosting and Cloud Service Providers", "Large companies with internal networks"],
       serviceType: "Network Protection"
     },
     {
       icon: <Server size={56} className="text-blue-600 bg-white rounded-full p-2" />,
-      title: <>Huscom <br /><span className="text-blue-600 font-bold">for Servers</span></>,
+      title: <>Stormwall <br /><span className="text-blue-600 font-bold">for Servers</span></>,
       description: "Keep your TCP/UDP services operational and safe from the most modern and complex DDoS attacks.",
       worksFor: ["Gaming", "IP telephony, etc"],
       serviceType: "Server Protection"
