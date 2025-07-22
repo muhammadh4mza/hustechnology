@@ -3,7 +3,7 @@ import Banner from '../components/Banner';
 import AboutUsOne from '../components/AboutUsOne'; 
 import Footer from '../components/Footer';
 import HuscomContent from '../components/HuscomContent';
-import OurTeam from '../components/OurTeam';
+// import OurTeam from '../components/OurTeam';
 
 const AboutUs = () => {
   return (
@@ -20,7 +20,7 @@ const AboutUs = () => {
         <Banner />
         <AboutUsOne />
         <HuscomContent />
-        <OurTeam />
+        {/* <OurTeam /> */}
         <Footer />
       </div>
     </div>

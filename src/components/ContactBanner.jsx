@@ -22,7 +22,7 @@ const ContactBanner = () => {
               Ready to, Transform Your Business?
             </h1>
             <p className="text-lg md:text-xl mb-6">
-              Let's discuss how HUS Technology can help you achieve your digital goals.
+              Let's discuss how HUSCOM INTERNATIONAL can help you achieve your digital goals.
             </p>
             {/* CTA Buttons would go here */}
           </div>

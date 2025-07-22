@@ -125,8 +125,7 @@ const WhyChooseUs = () => {
             >
               <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 sm:p-8 text-white rounded-xl lg:text-left text-center">
                 <p className="text-lg sm:text-xl font-medium max-w-3xl lg:mx-0 mx-auto">
-                  "Sed perspiciatis unde omnis iste natus error voluptatem accusantium
-                  doloremque laudantium totam rem aperiam eaque quae"
+                  "We believe in the power of technology to transform businesses. We have grown to become a trusted provider of IT and telecom solutions."
                 </p>
                 <div className="mt-6 lg:flex lg:justify-start flex justify-center">
                   <button

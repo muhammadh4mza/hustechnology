@@ -118,7 +118,7 @@ const Footer = () => {
             Huscom International (Pvt) Ltd
           </p>
           <p className="text-sm text-gray-400">
-            All Rights Reserved © Copyright {new Date().getFullYear()}
+            © <a href="https://digiouscorp.com" target="_blank" rel="noopener noreferrer">Digious Corp</a> | All Rights Reserved {new Date().getFullYear()}
           </p>
         </div>
       </div>

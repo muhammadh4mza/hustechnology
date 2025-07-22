@@ -61,7 +61,7 @@ const ContactPage = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white">Phone</h4>
                   <a href="tel:+1234567890" className="text-gray-300 hover:text-blue-400 transition">
-                    +1 (234) 567-890
+                    +92 300 242 9349
                   </a>
                 </div>
               </div>
@@ -73,7 +73,7 @@ const ContactPage = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white">Email</h4>
                   <a href="mailto:contact@gmail.com" className="text-gray-300 hover:text-blue-400 transition">
-                    contact@gmail.com
+                    info@huscomintl.com
                   </a>
                 </div>
               </div>
@@ -84,7 +84,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">Location</h4>
-                  <p className="text-gray-300">123 Tech Street, Silicon Valley, CA 94000</p>
+                  <p className="text-gray-300">Islamabad, Pakistan</p>
                 </div>
               </div>
             </div>
