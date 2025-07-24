@@ -61,12 +61,12 @@ const ContactPage = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white">Phone</h4>
                   <a href="tel:0518481943" className="text-gray-300 hover:text-blue-400 transition">
-                    (051)8481943
+                    (051) 848 1943
 
                   </a>
                   <br />
                   <a href="tel:03155513155" className="text-gray-300 hover:text-blue-400 transition">
-                    0315-5513155
+                    +92 315 551 3155
                   </a>
                 </div>
               </div>
