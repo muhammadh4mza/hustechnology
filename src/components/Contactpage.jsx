@@ -60,8 +60,13 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">Phone</h4>
-                  <a href="tel:+1234567890" className="text-gray-300 hover:text-blue-400 transition">
-                    +92 300 242 9349
+                  <a href="tel:0518481943" className="text-gray-300 hover:text-blue-400 transition">
+                    (051)8481943
+
+                  </a>
+                  <br />
+                  <a href="tel:03155513155" className="text-gray-300 hover:text-blue-400 transition">
+                    0315-5513155
                   </a>
                 </div>
               </div>
@@ -73,7 +78,7 @@ const ContactPage = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white">Email</h4>
                   <a href="mailto:contact@gmail.com" className="text-gray-300 hover:text-blue-400 transition">
-                    info@huscomintl.com
+                    sales@huscomintl.com
                   </a>
                 </div>
               </div>
@@ -84,7 +89,10 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">Location</h4>
-                  <p className="text-gray-300">Islamabad, Pakistan</p>
+                  <p className="text-gray-300">House 14, street 2, sector F,
+Soan Garden
+Islamabad EXPRESSWAY.
+ISLAMABAD</p>
                 </div>
               </div>
             </div>
