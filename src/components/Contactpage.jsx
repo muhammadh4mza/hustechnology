@@ -77,7 +77,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-white">Email</h4>
-                  <a href="mailto:contact@gmail.com" className="text-gray-300 hover:text-blue-400 transition">
+                  <a href="mailto:sales@huscomintl.com" className="text-gray-300 hover:text-blue-400 transition">
                     sales@huscomintl.com
                   </a>
                 </div>
@@ -90,9 +90,9 @@ const ContactPage = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-white">Location</h4>
                   <p className="text-gray-300">House 14, street 2, sector F,
-Soan Garden
-Islamabad EXPRESSWAY.
-ISLAMABAD</p>
+                    Soan Garden
+                    Islamabad EXPRESSWAY.
+                    ISLAMABAD</p>
                 </div>
               </div>
             </div>
