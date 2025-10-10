@@ -17,10 +17,10 @@ const categories = [
     bgColor: "bg-white-50"
   },
   {
-    name: "Stormwall Network",
-    description: "Enterprise-grade network infrastructure and security solutions",
+    name: "DDoS Protection",
+    description: "DDoS protection is a security measure designed to safeguard servers, websites, and networks",
     icon: <Server className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
-    url: "/stormwallnetwork",
+    url: "#",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"
   },
