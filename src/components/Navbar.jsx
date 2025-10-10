@@ -37,7 +37,7 @@ const Navbar = () => {
   }, []);
 
   const menuLinks = [
-    { href: '/', text: 'Home' }, // Home is now first
+    { href: '/', text: 'Home' }, 
     { href: '#', text: 'Partnership Program' },
     { href: '#', text: 'Products' },
     { href: '/aboutus', text: 'About Us' },
