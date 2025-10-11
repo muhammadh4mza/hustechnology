@@ -16,31 +16,31 @@ const SolutionsSection = () => {
   const solutions = [
     {
       id: 1,
-      title: "Public Safety",
-      content: "Comprehensive drone detection and neutralization systems for urban environments and crowded spaces.",
+      title: "Account Takeover",
+      content: "Account takeovers occur when unauthorized individuals gain access to user accounts, often through stolen credentials or phishing attacks.",
       link: "",
       image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/24/66f25da1925bd.jpg",
       icon: ShieldCheck
     },
     {
       id: 2,
-      title: "Power Plant",
-      content: "Critical infrastructure protection with 24/7 drone surveillance and rapid response capabilities.",
+      title: "API Security",
+      content: "To protect your APIs from unauthorized access, it’s essential to verify user identity through token validation.",
       link: "",
       image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f137dd33ad0.jpg",
       icon: Bolt
     },
     {
       id: 3,
-      title: "Petrochemical",
-      content: "Advanced counter-drone technology for high-risk industrial facilities and sensitive locations.",
+      title: "Fake Account Creation",
+      content: "Fake accounts can exploit premium-rate SMS verifications to generate massive fraudulent charges, leaving businesses to cover the costs.",
       link: "",
       image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a4857d74.jpg",
       icon: FlaskConical
     },
     {
       id: 4,
-      title: "Airport",
+      title: "MFA Compromise: Reverse-proxy Phishing",
       content: "Airspace security solutions that integrate seamlessly with existing aviation safety systems.",
       link: "",
       image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a53b41ac.jpg",
@@ -48,7 +48,7 @@ const SolutionsSection = () => {
     },
     {
       id: 5,
-      title: "Harbor",
+      title: "IRSF/SMS Toll Fraud",
       content: "Maritime drone defense systems for port security and coastal protection.",
       link: "",
       image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a7ab2c06.jpg",
@@ -56,20 +56,21 @@ const SolutionsSection = () => {
     },
     {
       id: 6,
-      title: "Mass Events",
-      content: "Temporary deployable systems for concerts, sports events, and public gatherings.",
+      title: "Inventory Hoarding",
+      content: "Inventory hoarding by leveraging advanced, prescriptive bot detection and mitigation technology within a unified platform. ",
       link: "",
       image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a6b9d7ad.jpg",
       icon: Sparkles
-    },
-    {
-      id: 7,
-      title: "Prison",
-      content: "Perimeter security and contraband interdiction through aerial threat detection.",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a6034a50.jpg",
-      icon: Building2
     }
+    // ,
+    // {
+    //   id: 7,
+    //   title: "Prison",
+    //   content: "Perimeter security and contraband interdiction through aerial threat detection.",
+    //   link: "",
+    //   image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a6034a50.jpg",
+    //   icon: Building2
+    // }
   ];
 
   return (
