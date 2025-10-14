@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import UAVDroneTechnologySolution from './pages/UAVDroneTechnologySolution';
+import SecuritySolutions from './pages/SecuritySolutions';
 import AboutUs from './pages/AboutUs';
 import Products from './pages/Products';
 import IPServices from './pages/IPServices';
@@ -27,7 +27,7 @@ function App() {
         <Routes>
           
           <Route path="/" element={<Home />} />
-          <Route path="/uav-drone-technology-solution" element={<UAVDroneTechnologySolution />} />
+          <Route path="/security-solutions" element={<SecuritySolutions />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/#" element={<Products />} />
           <Route path="/ip-services" element={<IPServices />} />

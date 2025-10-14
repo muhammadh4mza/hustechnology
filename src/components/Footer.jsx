@@ -22,7 +22,7 @@ const Footer = () => {
                 { href: "/ip-services", text: "IP Services" },
                 { href: "/", text: "DDoS Protection" },
                 { href: "/telecom-communication-hardware", text: "Telecom & Communication Hardware" },
-                { href: "/uav-drone-technology-solution", text: "UAV / Drone Technology Solutions" }
+                { href: "/security-solutions", text: "Security Solutions" }
               ].map((item, index) => (
                 <li key={index}>
                   <a 

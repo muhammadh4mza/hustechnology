@@ -195,7 +195,7 @@ const WhyChooseUs = () => {
                             <option value="IP Services">IP Services</option>
                             <option value="Telecom & Communication Hardwar">Telecom & Communication Hardware</option>
                             <option value="Stormwall Network">Stormwall Network</option>
-                            <option value="UAV / Drone Technology Solutions">UAV / Drone Technology Solutions</option>
+                            <option value="SecuritySolutions">SecuritySolutions</option>
                             <option value="Other">Other</option>
                           </select>
                         </div>

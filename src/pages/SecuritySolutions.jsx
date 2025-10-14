@@ -2,8 +2,10 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import SolutionServiceBanner from '../components/SolutionServiceBanner';
 import SolutionsSection from '../components/SolutionsSection';
-import ProductsSection from '../components/ProductsSection';
+// import ProductsSection from '../components/ProductsSection';
+// import BonusAbuse from '../components/Bonus-Abuse';
 import Footer from '../components/Footer';
+import Uavdronessubservices from '../components/Uavdronessubservices';
 
 const UAVDroneTechnologySolution = () => {
   return (
@@ -19,8 +21,9 @@ const UAVDroneTechnologySolution = () => {
         <Navbar />
         <SolutionServiceBanner />
         <SolutionsSection />
-        <ProductsSection />
-
+        {/* <ProductsSection /> */}
+        {/* <BonusAbuse /> */}
+        <Uavdronessubservices />
         <Footer />
       </div>
     </div>

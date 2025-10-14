@@ -36,7 +36,7 @@ const categories = [
     name: "UUAV / Drone Technology",
     description: "Advanced unmanned aerial vehicle solutions",
     icon: <Plane className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
-    url: "/uav-drone-technology-solution",
+    url: "security-solutions",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"
   }
