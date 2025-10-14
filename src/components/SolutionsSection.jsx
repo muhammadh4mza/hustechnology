@@ -14,64 +14,55 @@ const SolutionsSection = () => {
   const [hoveredTab, setHoveredTab] = useState(null);
 
   const solutions = [
-    {
-      id: 1,
-      title: "Account Takeover",
-      content: "Account takeovers occur when unauthorized individuals gain access to user accounts, often through stolen credentials or phishing attacks.",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/24/66f25da1925bd.jpg",
-      icon: ShieldCheck
-    },
-    {
-      id: 2,
-      title: "API Security",
-      content: "To protect your APIs from unauthorized access, it’s essential to verify user identity through token validation.",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f137dd33ad0.jpg",
-      icon: Bolt
-    },
-    {
-      id: 3,
-      title: "Fake Account Creation",
-      content: "Fake accounts can exploit premium-rate SMS verifications to generate massive fraudulent charges, leaving businesses to cover the costs.",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a4857d74.jpg",
-      icon: FlaskConical
-    },
-    {
-      id: 4,
-      title: "MFA Compromise: Reverse-proxy Phishing",
-      content: "Airspace security solutions that integrate seamlessly with existing aviation safety systems.",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a53b41ac.jpg",
-      icon: Plane
-    },
-    {
-      id: 5,
-      title: "IRSF/SMS Toll Fraud",
-      content: "Maritime drone defense systems for port security and coastal protection.",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a7ab2c06.jpg",
-      icon: Anchor
-    },
-    {
-      id: 6,
-      title: "Inventory Hoarding",
-      content: "Inventory hoarding by leveraging advanced, prescriptive bot detection and mitigation technology within a unified platform. ",
-      link: "",
-      image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a6b9d7ad.jpg",
-      icon: Sparkles
-    }
-    // ,
-    // {
-    //   id: 7,
-    //   title: "Prison",
-    //   content: "Perimeter security and contraband interdiction through aerial threat detection.",
-    //   link: "",
-    //   image: "https://qiniu.mfdemo.cn/fanshuang/2024/09/23/66f13a6034a50.jpg",
-    //   icon: Building2
-    // }
-  ];
+  {
+    id: 1,
+    title: "Account Takeover",
+    content: "Account takeovers occur when unauthorized individuals gain access to user accounts, often through stolen credentials or phishing attacks.",
+    link: "",
+    image: "https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?q=80&w=1200&auto=format&fit=crop", // cybersecurity lock image
+    icon: ShieldCheck
+  },
+  {
+    id: 2,
+    title: "API Security",
+    content: "To protect your APIs from unauthorized access, it’s essential to verify user identity through token validation.",
+    link: "",
+    image: "https://images.unsplash.com/photo-1605902712675-8b8b2c5beedb?q=80&w=1200&auto=format&fit=crop", // code and security overlay
+    icon: Bolt
+  },
+  {
+    id: 3,
+    title: "Fake Account Creation",
+    content: "Fake accounts can exploit premium-rate SMS verifications to generate massive fraudulent charges, leaving businesses to cover the costs.",
+    link: "",
+    image: "https://images.unsplash.com/photo-1605902712927-38aef4ef2b14?q=80&w=1200&auto=format&fit=crop", // fake identity / bot concept
+    icon: FlaskConical
+  },
+  {
+    id: 4,
+    title: "MFA Compromise: Reverse-proxy Phishing",
+    content: "Reverse-proxy phishing attacks intercept authentication tokens to bypass MFA security layers.",
+    link: "",
+    image: "https://images.unsplash.com/photo-1605902712395-09b54f96dcd7?q=80&w=1200&auto=format&fit=crop", // phishing / MFA concept
+    icon: Plane
+  },
+  {
+    id: 5,
+    title: "IRSF/SMS Toll Fraud",
+    content: "When fraudsters trigger premium-rate calls or messages to exploit telecom systems, businesses face massive costs from SMS toll fraud.",
+    link: "",
+    image: "https://images.unsplash.com/photo-1556741533-f6acd647b2c4?q=80&w=1200&auto=format&fit=crop", // telecom / SMS phone image
+    icon: Anchor
+  },
+  {
+    id: 6,
+    title: "Inventory Hoarding",
+    content: "Inventory hoarding by leveraging advanced, prescriptive bot detection and mitigation technology within a unified platform.",
+    link: "",
+    image: "https://images.unsplash.com/photo-1523473827532-15e9b5a0a3b1?q=80&w=1200&auto=format&fit=crop", // ecommerce or warehouse shelves
+    icon: Sparkles
+  }
+];
 
   return (
     <section className="w-full py-16 px-4 md:px-8 lg:px-16  relative overflow-hidden">
