@@ -5,7 +5,6 @@ import {
   FlaskConical,
   Plane,
   Sparkles,
-  Building2,
   Anchor
 } from 'lucide-react';
 
