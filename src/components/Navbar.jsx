@@ -64,7 +64,7 @@ const Navbar = () => {
     },
     { href: '#', text: 'DDoS Protection' },
     { href: '/telecom-communication-hardware', text: 'Telecom & Communication Hardware' },
-    { href: 'security-solutions', text: 'SecuritySolutions' }
+    { href: 'security-solutions', text: 'Security Solutions' }
   ];
 
   const handleMouseEnterDropdown = () => {
