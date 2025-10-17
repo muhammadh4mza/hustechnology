@@ -3,7 +3,7 @@ import {
   ShieldCheck, 
   Server, 
   Wifi, 
-  Plane,
+  Siren,
   ArrowRight 
 } from 'lucide-react';
 
@@ -33,9 +33,9 @@ const categories = [
     bgColor: "bg-white-50"
   },
   {
-    name: "UUAV / Drone Technology",
+    name: "Security Solutions",
     description: "Advanced unmanned aerial vehicle solutions",
-    icon: <Plane className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
+    icon: <Siren className="h-16 w-16 mx-auto text-white group-hover:text-white transition-colors duration-300" />,
     url: "security-solutions",
     accent: "from-white/40 to-white/40",
     bgColor: "bg-white-50"

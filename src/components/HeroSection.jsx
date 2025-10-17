@@ -44,7 +44,7 @@ const HeroSection = () => {
           WELCOME TO <span className="text-[#086ad7]">HUSCOM</span> INTERNATIONAL
         </h1>
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 px-2 sm:px-0 drop-shadow-md">
-          Your Trusted IT, Telecom, Security and Anti-Drone Products Partner. In today's fast-paced digital landscape, reliable communication and IT infrastructure are critical to your business's success.
+          Your Trusted IT, Telecom, and Security Products Partner. In today's fast-paced digital landscape, reliable communication and IT infrastructure are critical to your business's success.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <a

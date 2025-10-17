@@ -11,23 +11,10 @@ const slides = [
     id: 1,
     image: uavBg,
     tip: '',
-    title: `WORLD'S LEADING ANTI DRONE <br>PRODUCTS MANUFACTURER`,
+    title: `INNOVATIVE SECURITY SYSTEMS<br>TAILORED TO YOUR NEEDS`,
     link: '',
   },
-  {
-    id: 2,
-    image: 'https://qiniu.mfdemo.cn/fanshuang/2025/03/20/67db83cfbd6f4.jpg',
-    tip: 'THOR M20',
-    title: 'MULTI-MISSION DEFENDER',
-    link: '',
-  },
-  {
-    id: 3,
-    image: 'https://qiniu.mfdemo.cn/fanshuang/2025/02/08/67a71e7dcc6d7.png',
-    tip: 'ARGUS D10',
-    title: `Handheld Drone Detector`,
-    link: '',
-  },
+  
 ];
 
 const SolutionServiceBanner = () => {
