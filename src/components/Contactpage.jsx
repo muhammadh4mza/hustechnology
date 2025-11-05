@@ -53,12 +53,12 @@ const ContactPage = () => {
           >
             <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
             
-            <div className="space-y-6">
+            {/* <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-500 p-3 rounded-full mr-4">
                   <Phone className="text-white w-5 h-5" />
                 </div>
-                {/* <div>
+                 <div>
                   <h4 className="text-lg font-semibold text-white">Phone</h4>
                   <a href="tel:0518481943" className="text-gray-300 hover:text-blue-400 transition">
                     (051) 848 1943
@@ -68,8 +68,8 @@ const ContactPage = () => {
                   <a href="tel:03155513155" className="text-gray-300 hover:text-blue-400 transition">
                     +92 315 551 3155
                   </a>
-                </div> */}
-              </div>
+                </div>
+              </div> */}
 
               <div className="flex items-start">
                 <div className="bg-blue-500 p-3 rounded-full mr-4">
