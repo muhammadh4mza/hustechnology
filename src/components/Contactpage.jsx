@@ -53,7 +53,7 @@ const ContactPage = () => {
           >
             <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
             
-            {/* <div className="space-y-6">
+           <div className="space-y-6">
               <div className="flex items-start">
                 <div className="bg-blue-500 p-3 rounded-full mr-4">
                   <Phone className="text-white w-5 h-5" />
@@ -69,7 +69,7 @@ const ContactPage = () => {
                     +92 315 551 3155
                   </a>
                 </div>
-              </div> */}
+              </div>
 
               <div className="flex items-start">
                 <div className="bg-blue-500 p-3 rounded-full mr-4">
